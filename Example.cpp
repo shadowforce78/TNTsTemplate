@@ -1,5 +1,5 @@
 #include "Example.hpp"
-#include "Offsets.hpp"
+#include "Offsets.hpp" // using pointers is the most straightforward, safest and easist
 #include "Modules/Mods/Drawing.hpp"
 #include "ImGui/imgui.h"
 #include <algorithm>
@@ -207,4 +207,5 @@ void ExampleModule::Initialize() {
 
 
 ExampleModule Example;
+
 
