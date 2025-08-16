@@ -65,8 +65,8 @@ void ExampleModule::PlayerTickCalled(const PostEvent& event) {
     APlayerController_TA* localPlayerController = localPlayers[0];
     localPlayerPRI = localPlayerController->PRI;
 
-    TArray<ACar_TA*> cars = SafeRead<TArray<ACar_TA*>>((uintptr_t)CurrentGameEvent + Offsets::TAGame::GameEvent_TA::Cars);
-    TArray<ABall_TA*> balls = SafeRead<TArray<ABall_TA*>>((uintptr_t)CurrentGameEvent + Offsets::TAGame::GameEvent_Soccar_TA::GameBalls);
+    TArray<ACar_TA*> cars = CurrentGameEvent->Cars;
+    TArray<ABall_TA*> balls = CurrentGameEvent->GameBalls
 
     for (APlayerController_TA* localPlayer : localPlayers) {
         // example for getting Car/PRI
@@ -74,14 +74,14 @@ void ExampleModule::PlayerTickCalled(const PostEvent& event) {
         APRI_TA* PRI = localPlayer->PRI;
 
         //get input
-        FVehicleInputs currentInputs = SafeRead<FVehicleInputs>((uintptr_t)localPlayer + Offsets::TAGame::PlayerController_TA::VehicleInput);
+        //FVehicleInputs currentInputs = localPlayer->VehicleInput; //might not work
     }
 
     // get all cars with boost data
     for (ACar_TA* car : cars) {
         if (!car) continue;
 
-        FVector carLocation = SafeRead<FVector>((uintptr_t)car + Offsets::Engine::Actor::Location);
+        FVector carLocation = car->Location
 
         FVector boostCircleLocation = carLocation;
         boostCircleLocation.Z += 100.0f; 
@@ -89,11 +89,11 @@ void ExampleModule::PlayerTickCalled(const PostEvent& event) {
         FVector screenPos = Drawing::CalculateScreenCoordinate(boostCircleLocation, localPlayerController);
 
 
-        ACarComponent_Boost_TA* boostComponent = SafeRead<ACarComponent_Boost_TA*>((uintptr_t)car + Offsets::TAGame::Vehicle_TA::BoostComponent);
+        ACarComponent_Boost_TA* boostComponent = car->BoostComponent;
         float boostAmount = 0.0f;
         try {
             if (boostComponent) {
-                boostAmount = SafeRead<float>((uintptr_t)boostComponent + Offsets::TAGame::CarComponent_Boost_TA::CurrentBoostAmount) * 100;
+                boostAmount = boostComponent->CurrentBoostAmount * 100;
                 Console.Write("Boost amount read: " + std::to_string(boostAmount));
             }
             else {
@@ -115,7 +115,7 @@ void ExampleModule::PlayerTickCalled(const PostEvent& event) {
     // get all balls and save in list
     for (ABall_TA* ball : balls) {
         if (!ball) continue;
-        FVector ballLocation = SafeRead<FVector>((uintptr_t)ball + Offsets::Engine::Actor::Location);
+        FVector ballLocation = ball->Location;
         FVector screenPos = Drawing::CalculateScreenCoordinate(ballLocation, localPlayerController);
         ballScreenPositions.push_back(screenPos);
     }
@@ -207,3 +207,4 @@ void ExampleModule::Initialize() {
 
 
 ExampleModule Example;
+
