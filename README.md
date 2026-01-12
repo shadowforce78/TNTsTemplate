@@ -2,7 +2,7 @@
 ### Template for creating Rocket League mods (you need to build it in Release x64)
 `DISCLAIMER: IF YOU USE THIS PROJECT FOR MALICIOUS PURPOSES THAT IS ON YOU :P THIS PROJECT HAS BEEN CREATED FOR SOLELY MODDING THE GAME.`
 - This project contains code from ItsBranK's old CodeRedTemplate and has ImGui built in using KieroHook.
-- This Project is based on Snayck's Template
+- This Project is based on Snayck's Template (https://www.unknowncheats.me/forum/other-fps-games/580873-rocket-league-mod-cheat-template.html)
 
 - i dont know what this README sais tbh
 - Pattern scanning is based of RocketDumpers pattern scanning - https://github.com/lchmagKekse/RocketDumper
