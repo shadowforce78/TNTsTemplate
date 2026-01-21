@@ -205,10 +205,55 @@ void DefaultImGuiStyle()
 }
 
 void GUIComponent::InitMainTab() {
-	if (ImGui::Button("Template Button")) {
-		Main.Execute([]() {
-			Main.SpawnNotification("Template", "Template button has been pressed!", 10);
-		});
+	if (ImGui::CollapsingHeader("Game State", ImGuiTreeNodeFlags_DefaultOpen)) {
+		ImGui::Text("Is In Game: %s", Example.IsInGame ? "Yes" : "No");
+		ImGui::Text("Game Event: %p", Example.CurrentGameEvent);
+	}
+
+	// Use cached data for thread safety
+	std::vector<CachedBallData> localBalls;
+	std::vector<CachedCarData> localCars;
+	{
+		std::lock_guard<std::mutex> lock(Example.renderMutex);
+		localBalls = Example.cachedBalls;
+		localCars = Example.cachedCars;
+	}
+
+	if (Example.IsInGame) {
+		if (ImGui::CollapsingHeader("Balls", ImGuiTreeNodeFlags_DefaultOpen)) {
+			ImGui::Text("Count: %d", localBalls.size());
+			
+			for (size_t i = 0; i < localBalls.size(); i++) {
+				const auto& ball = localBalls[i];
+				
+				ImGui::PushID((int)i);
+				if (ImGui::TreeNode((void*)i, "Ball %d", i)) {
+					ImGui::Text("Location: (%.2f, %.2f, %.2f)", ball.Location.X, ball.Location.Y, ball.Location.Z);
+					ImGui::Text("Velocity: (%.2f, %.2f, %.2f)", ball.Velocity.X, ball.Velocity.Y, ball.Velocity.Z);
+					ImGui::Text("Radius: %.2f", ball.Radius);
+					ImGui::TreePop();
+				}
+				ImGui::PopID();
+			}
+		}
+
+		if (ImGui::CollapsingHeader("Cars", ImGuiTreeNodeFlags_DefaultOpen)) {
+			ImGui::Text("Count: %d", localCars.size());
+
+			for (size_t i = 0; i < localCars.size(); i++) {
+				const auto& car = localCars[i];
+
+				ImGui::PushID(car.Ptr);
+				if (ImGui::TreeNode(car.Ptr, "%s", car.Name.c_str())) {
+					ImGui::Text("Location: (%.2f, %.2f, %.2f)", car.Location.X, car.Location.Y, car.Location.Z);
+					ImGui::Text("Boost: %.2f", car.Boost);
+					ImGui::TreePop();
+				}
+				ImGui::PopID();
+			}
+		}
+	} else {
+		ImGui::TextColored(ImVec4(1, 1, 0, 1), "Waiting for Game...");
 	}
 }
 
@@ -225,9 +270,8 @@ void GUIComponent::Render()
 	GUI.DisplayX = IO.DisplaySize.x;
 	GUI.DisplayY = IO.DisplaySize.y;
 
-	if (Example.IsInGame) {
-		Example.OnRender();
-	}
+	// Always render modules (they handle their own IsInGame checks if needed)
+	Example.OnRender();
 
 	IO.MouseDrawCursor = IsOpen;
 	ImGui::SetNextWindowSize(ImVec2(840, 450));
