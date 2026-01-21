@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: Core_classes.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -1384,6 +1384,106 @@ enum class EContentKeyIndex_PrimeUpdate55_1 : uint8_t
 	PrimeUpdate55_1_END                                = 25
 };
 
+// Enum Core._Types_Generated.EContentKeyIndex_PrimeUpdate56
+enum class EContentKeyIndex_PrimeUpdate56_0 : uint8_t
+{
+	PrimeUpdate56_41164ED7BDB3F19F21984E0CA10E7C4F     = 0,
+	PrimeUpdate56_C39A48D8A6C08977D55A012BCB13B4D3     = 1,
+	PrimeUpdate56_3209B1937EE66C52D3C1C9216DAC6DB8     = 2,
+	PrimeUpdate56_F3D7A74E3BFDC5D6DFCA45C02F7F7729     = 3,
+	PrimeUpdate56_D79B716521C1174E1FB3FEA6526DECCE     = 4,
+	PrimeUpdate56_6A6AF48FDBD512FA1815A884B952D7A5     = 5,
+	PrimeUpdate56_4BABC8A394750FC25CBDFE31876FD96F     = 6,
+	PrimeUpdate56_C66CB49EA9A9F5AA0099A5406D5D9A79     = 7,
+	PrimeUpdate56_A8D9E7F0372D5FF478154844495FF835     = 8,
+	PrimeUpdate56_C51F2C37FF6CD0108A888AF8CF447F6A     = 9,
+	PrimeUpdate56_13D612D80D63D9D975FA38F60CF88EF2     = 10,
+	PrimeUpdate56_EA5F698DB93ED8C2C27500A497CC2A40     = 11,
+	PrimeUpdate56_8B17C2CAB0CB2B0B152234E45F57D553     = 12,
+	PrimeUpdate56_A48A643DF3A0A727DFD26FAB7EE17389     = 13,
+	PrimeUpdate56_A657ACD394228B2D30E163C349E765B5     = 14,
+	PrimeUpdate56_36669216607B23BD4CA991E82B0F89D1     = 15,
+	PrimeUpdate56_1448C54AF70B6FCCBBCE27EA4B490FF3     = 16,
+	PrimeUpdate56_1E5D9B8D9EB024763D31A07DD1207C91     = 17,
+	PrimeUpdate56_FB23DD57EC3E5E45284E0A5C5ECD624E     = 18,
+	PrimeUpdate56_44CDDD1AF555CAA4D5F62052C757F177     = 19,
+	PrimeUpdate56_28BE02880F6263D0E79FC8B06358FE8A     = 20,
+	PrimeUpdate56_379D4A55A1DDFBE206EC66A67B5E4E51     = 21,
+	PrimeUpdate56_8FF3FC0D6F12F3D2B5DEFF7FEFFCE13F     = 22,
+	PrimeUpdate56_4F9D85A4DAAC2ADC767DE907A782F6D0     = 23,
+	PrimeUpdate56_F85BF95681F2B190DB7CE719FC4F2D4B     = 24,
+	PrimeUpdate56_72245A3AA2009FDCADE521458E9E03E7     = 25,
+	PrimeUpdate56_E83BEBA1D39472EB242EDB0F36E5D705     = 26,
+	PrimeUpdate56_7885584A2661BF346EA285C88957C5A5     = 27,
+	PrimeUpdate56_A43BAB4FD129D0AB1A42BBD3D1DFFB9F     = 28,
+	PrimeUpdate56_D41F80EA1BEF3C55560464959F9B5FFA     = 29,
+	PrimeUpdate56_92A777E7448F613619B98E4FD3AD056D     = 30,
+	PrimeUpdate56_END                                  = 31
+};
+
+// Enum Core._Types_Generated.EContentKeyIndex_PrimeUpdate56
+enum class EContentKeyIndex_PrimeUpdate56_1 : uint8_t
+{
+	PrimeUpdate56_1_896B373E087312595DC2069EA6D5DA07   = 0,
+	PrimeUpdate56_1_CB48A3ACAD6423347398F9E6F1ABEF74   = 1,
+	PrimeUpdate56_1_0380EA1D644D01067143696D98E4FFF5   = 2,
+	PrimeUpdate56_1_581078461AD3FF32419AF3787B2EF131   = 3,
+	PrimeUpdate56_1_57868B1385B592B8BAC09FF81F92DAFC   = 4,
+	PrimeUpdate56_1_91E14D7DBE50DC74B0B7EC413D433520   = 5,
+	PrimeUpdate56_1_F8309D87AC624C7FABCBD26BF092B096   = 6,
+	PrimeUpdate56_1_D985EB29501130EF0258BAEC9F8753A4   = 7,
+	PrimeUpdate56_1_70757702C36103D31C78EBE98D89F80B   = 8,
+	PrimeUpdate56_1_065D29EFF6BC77CA28090627875EEAC3   = 9,
+	PrimeUpdate56_1_8640AA8D5CAAA240E3D6300C10967E64   = 10,
+	PrimeUpdate56_1_844E6B4885D1F0C04144A3E7705F37C1   = 11,
+	PrimeUpdate56_1_A098760F160F2A4CB8C32E1F2D93F380   = 12,
+	PrimeUpdate56_1_F0B1115B1657E08474CCEC5F42FDDC1E   = 13,
+	PrimeUpdate56_1_987C7B7935F7579D4DC0EA99743F8D1C   = 14,
+	PrimeUpdate56_1_CB733CC55DA67D6AFE853A68DC706CA4   = 15,
+	PrimeUpdate56_1_END                                = 16
+};
+
+// Enum Core._Types_Generated.EContentKeyIndex_PrimeUpdate57
+enum class EContentKeyIndex_PrimeUpdate57 : uint8_t
+{
+	PrimeUpdate57_EE5AB153D5CEB4BFFDBEDCD01FDA496D     = 0,
+	PrimeUpdate57_C3F1B67C3E335BDF5947635E35B57FC3     = 1,
+	PrimeUpdate57_C957E61A8A501083F610DC76C760226B     = 2,
+	PrimeUpdate57_8BE923D162C0552F4F13F87C40191C3A     = 3,
+	PrimeUpdate57_88E13336CA73EA19976636CD1FC122B1     = 4,
+	PrimeUpdate57_09BAA3CA54075FBB240817C64A089ADC     = 5,
+	PrimeUpdate57_E2729381E7A54D0421EA45FDFD412C22     = 6,
+	PrimeUpdate57_9B1B037858B80596344329E397A9C4FA     = 7,
+	PrimeUpdate57_393B6BAA79813887F231F8440F7CB09A     = 8,
+	PrimeUpdate57_BAD2B70DBBA2D010CF667F9B063DA1A8     = 9,
+	PrimeUpdate57_6973F185F7F305C4FED77B406408C71F     = 10,
+	PrimeUpdate57_658386F8264D207FAB4499F6E15DF61B     = 11,
+	PrimeUpdate57_145C0C34C82C807512CD96F87BD541B0     = 12,
+	PrimeUpdate57_E4B27FD592AAEC8742AFC933252F04BB     = 13,
+	PrimeUpdate57_9BD6FB91FD7E78075B537C4A91441D80     = 14,
+	PrimeUpdate57_8B9A200098588BC6C32DEEDC0DEA9539     = 15,
+	PrimeUpdate57_F2EB664D7D0199FEF19D99A6F765A64F     = 16,
+	PrimeUpdate57_87AF2B3514656129E1C82567C7CEBF70     = 17,
+	PrimeUpdate57_306C73B9F5BA0CF2718946DA8291275E     = 18,
+	PrimeUpdate57_F1220AA32F763A395F38E9EB619FDB44     = 19,
+	PrimeUpdate57_249FD98E4BA1B52EF059B315064F5A8D     = 20,
+	PrimeUpdate57_CC908A883D25989184244D2483275AAC     = 21,
+	PrimeUpdate57_537B9F851E6A3396907EDB19DE477E91     = 22,
+	PrimeUpdate57_00F6EAA14FAE66FE6E5D494B141742D6     = 23,
+	PrimeUpdate57_47823B257BDEFFFFA69577E633EC850A     = 24,
+	PrimeUpdate57_92D73769B8F6B8DDEACAD18D98F91C0E     = 25,
+	PrimeUpdate57_E29CDC661A12BD09F1D0DD406BCB9269     = 26,
+	PrimeUpdate57_43333190CFD362CC7731FCB9A6726794     = 27,
+	PrimeUpdate57_D4DE636E25B79579CB44A0223FA34643     = 28,
+	PrimeUpdate57_45C6CF3952D0CE201A0C6CCE89C9CB22     = 29,
+	PrimeUpdate57_5194EDEBAD3464C1ED34B9AAE278FEA1     = 30,
+	PrimeUpdate57_C82DF6ABD2CF677D5BAF4A9E72F59C9F     = 31,
+	PrimeUpdate57_4D135E230392BE9E15580016BCCE0506     = 32,
+	PrimeUpdate57_4EB99B76E407CB77A5F815FFC6EC86C2     = 33,
+	PrimeUpdate57_7F859AE48595639FD9B436708D4E3D57     = 34,
+	PrimeUpdate57_END                                  = 35
+};
+
 // Enum Core._Types_Generated.EContentKeyIndex_ContinuousIntegration
 enum class EContentKeyIndex_ContinuousIntegration : uint8_t
 {
@@ -1712,6 +1812,10 @@ public:
 	static void JoinArray(class FString optionalDelim, bool optionalBIgnoreBlanks, TArray<class FString>& StringArray, class FString& out_Result);
 	static class FString GetRightMost(class FString Text);
 	static class FString Split(class FString Text, class FString SplitStr, bool optionalBOmitSplitStr);
+	static class FString TCharToUTF8(class FString Src);
+	static class FString UTF8ToTChar(class FString Src);
+	static class FString MakeAsciiSafe(class FString InStr);
+	static class FString PadRight(class FString S, int32_t optionalWidthChars);
 	static bool StartsWith(class FString Src, class FString Prefix);
 	static class FString Trim(class FString Src);
 	static class FString Repl(class FString Src, class FString Match, class FString With, bool optionalBCaseSensitive);
@@ -1870,6 +1974,8 @@ public:
 	static uint64_t QSubtract(uint64_t A, uint64_t B);
 	static bool NotEqual_QWordInt(uint64_t A, int32_t B);
 	static bool EqualEqual_QWordInt(uint64_t A, int32_t B);
+	static uint64_t SubtractEqual_QWordQWord(uint64_t B, uint64_t& A);
+	static uint64_t AddEqual_QWordQWord(uint64_t B, uint64_t& A);
 	static bool NotEqual_QWordQWord(uint64_t A, uint64_t B);
 	static bool EqualEqual_QWordQWord(uint64_t A, uint64_t B);
 	static bool GreaterEqual_QWordQWord(uint64_t A, uint64_t B);
@@ -1878,6 +1984,8 @@ public:
 	static bool Less_QWordQWord(uint64_t A, uint64_t B);
 	static int32_t Subtract_QWordQWord(uint64_t A, uint64_t B);
 	static uint64_t Add_QWordQWord(uint64_t A, uint64_t B);
+	static uint64_t Divide_QWordQWord(uint64_t A, uint64_t B);
+	static uint64_t Multiply_QWordQWord(uint64_t A, uint64_t B);
 	static int32_t SubtractSubtract_Int(int32_t& A);
 	static int32_t AddAdd_Int(int32_t& A);
 	static int32_t SubtractSubtract_PreInt(int32_t& A);
@@ -1928,7 +2036,7 @@ public:
 class UConfig_ORS : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x60];                           // 0x0060 (0x0060) FINAL PADDING
+	uint8_t                                           UnknownData00[0x60];                           // 0x0060 (0x0060) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -1950,7 +2058,7 @@ public:
 class UClassTupleCollection_ORS : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x60];                           // 0x0060 (0x0060) FINAL PADDING
+	uint8_t                                           UnknownData00[0x60];                           // 0x0060 (0x0060) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -1972,7 +2080,7 @@ public:
 class UClassTuple_ORS : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x68];                           // 0x0060 (0x0068) FINAL PADDING
+	uint8_t                                           UnknownData00[0x68];                           // 0x0060 (0x0068) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -1994,7 +2102,7 @@ public:
 class USubscriptionCollection_ORS : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x20];                           // 0x0060 (0x0020) FINAL PADDING
+	uint8_t                                           UnknownData00[0x20];                           // 0x0060 (0x0020) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2011,12 +2119,34 @@ public:
 
 };
 
+// Class Core.Group_ORS
+// 0x00D0 (0x0068 - 0x0138)
+class UGroup_ORS : public UScriptGroup_ORS
+{
+public:
+	uint8_t                                           UnknownData00[0xD0];                           // 0x0068 (0x00D0) MISSED OFFSET
+
+public:
+	static UClass* StaticClass()
+	{
+		static UClass* uClassPointer = nullptr;
+
+		if (!uClassPointer)
+		{
+			uClassPointer = UObject::FindClass("Class Core.Group_ORS");
+		}
+
+		return uClassPointer;
+	};
+
+};
+
 // Class Core.Instance_ORS
 // 0x00B0 (0x0060 - 0x0110)
 class UInstance_ORS : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0xB0];                           // 0x0060 (0x00B0) FINAL PADDING
+	uint8_t                                           UnknownData00[0xB0];                           // 0x0060 (0x00B0) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2038,7 +2168,7 @@ public:
 class UGlobal_ORS : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x18];                           // 0x0060 (0x0018) FINAL PADDING
+	uint8_t                                           UnknownData00[0x18];                           // 0x0060 (0x0018) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2085,7 +2215,7 @@ public:
 class UTextBuffer : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x30];                           // 0x0060 (0x0030) FINAL PADDING
+	uint8_t                                           UnknownData00[0x30];                           // 0x0060 (0x0030) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2199,7 +2329,7 @@ public:
 class UPropertyChangeDispatcher : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x10];                           // 0x0060 (0x0010) FINAL PADDING
+	uint8_t                                           UnknownData00[0x10];                           // 0x0060 (0x0010) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2221,7 +2351,7 @@ public:
 class UPackageMap : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0xB8];                           // 0x0060 (0x00B8) FINAL PADDING
+	uint8_t                                           UnknownData00[0xB8];                           // 0x0060 (0x00B8) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2271,7 +2401,7 @@ public:
 class UObjectSerializer : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x10];                           // 0x0060 (0x0010) FINAL PADDING
+	uint8_t                                           UnknownData00[0x10];                           // 0x0060 (0x0010) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2293,7 +2423,7 @@ public:
 class UObjectRedirector : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x8];                            // 0x0060 (0x0008) FINAL PADDING
+	uint8_t                                           UnknownData00[0x8];                            // 0x0060 (0x0008) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2315,7 +2445,7 @@ public:
 class UMetaData : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x50];                           // 0x0060 (0x0050) FINAL PADDING
+	uint8_t                                           UnknownData00[0x50];                           // 0x0060 (0x0050) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2337,7 +2467,7 @@ public:
 class ULinker : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x188];                          // 0x0060 (0x0188) FINAL PADDING
+	uint8_t                                           UnknownData00[0x188];                          // 0x0060 (0x0188) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2359,7 +2489,7 @@ public:
 class ULinkerSave : public ULinker
 {
 public:
-	uint8_t                                           UnknownData00[0xC0];                           // 0x01E8 (0x00C0) FINAL PADDING
+	uint8_t                                           UnknownData00[0xC0];                           // 0x01E8 (0x00C0) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2381,7 +2511,7 @@ public:
 class ULinkerLoad : public ULinker
 {
 public:
-	uint8_t                                           UnknownData00[0x628];                          // 0x01E8 (0x0628) FINAL PADDING
+	uint8_t                                           UnknownData00[0x628];                          // 0x01E8 (0x0628) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2511,7 +2641,7 @@ public:
 class UScriptStruct : public UStruct
 {
 public:
-	uint8_t                                           UnknownData00[0x28];                           // 0x0130 (0x0028) FINAL PADDING
+	uint8_t                                           UnknownData00[0x28];                           // 0x0130 (0x0028) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2693,7 +2823,7 @@ public:
 class UClassProperty : public UObjectProperty
 {
 public:
-	uint8_t                                           UnknownData00[0x8];                            // 0x00D8 (0x0008) FINAL PADDING
+	uint8_t                                           UnknownData00[0x8];                            // 0x00D8 (0x0008) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -3035,6 +3165,7 @@ public:
 	uint32_t                                           CinematicIntro : 1;                            // 0x0070 (0x0004) [0x0000000040000000] [0x80000000] (CPF_EditInlineNotify)
 	uint32_t                                           TinyCrowd : 1;                                 // 0x0074 (0x0004) [0x0000000040000000] [0x00000001] (CPF_EditInlineNotify)
 	uint32_t                                           CrumbTrail : 1;                                // 0x0074 (0x0004) [0x0000000040000000] [0x00000002] (CPF_EditInlineNotify)
+	uint32_t                                           EpicGameStoreBuild : 1;                        // 0x0074 (0x0004) [0x0000000040000000] [0x00000004] (CPF_EditInlineNotify)
 	uint32_t                                           XPGatedPlaylists : 1;                          // 0x0074 (0x0004) [0x0000000040000000] [0x00000008] (CPF_EditInlineNotify)
 	uint32_t                                           TradeInV2 : 1;                                 // 0x0074 (0x0004) [0x0000000040000000] [0x00000020] (CPF_EditInlineNotify)
 	uint32_t                                           Football : 1;                                  // 0x0074 (0x0004) [0x0000000040000000] [0x00000040] (CPF_EditInlineNotify)
@@ -3066,11 +3197,21 @@ public:
 	uint32_t                                           RugbyIteration : 1;                            // 0x0078 (0x0004) [0x0000000040000000] [0x00000020] (CPF_EditInlineNotify)
 	uint32_t                                           ChallengesV2 : 1;                              // 0x0078 (0x0004) [0x0000000040000000] [0x00000080] (CPF_EditInlineNotify)
 	uint32_t                                           PossessionExpanded : 1;                        // 0x0078 (0x0004) [0x0000000040000000] [0x00000100] (CPF_EditInlineNotify)
+	uint32_t                                           KeepUp : 1;                                    // 0x0078 (0x0004) [0x0000000040000000] [0x00000800] (CPF_EditInlineNotify)
 	uint32_t                                           RocketPassUpgrades : 1;                        // 0x0078 (0x0004) [0x0000000040000000] [0x00002000] (CPF_EditInlineNotify)
 	uint32_t                                           PentathlonTournaments : 1;                     // 0x0078 (0x0004) [0x0000000040000000] [0x00004000] (CPF_EditInlineNotify)
+	uint32_t                                           DemolishUpdates : 1;                           // 0x0078 (0x0004) [0x0000000040000000] [0x00008000] (CPF_EditInlineNotify)
 	uint32_t                                           ViralItem : 1;                                 // 0x0078 (0x0004) [0x0000000040000000] [0x00010000] (CPF_EditInlineNotify)
 	uint32_t                                           ThankYouMessage : 1;                           // 0x0078 (0x0004) [0x0000000040000000] [0x00020000] (CPF_EditInlineNotify)
-	uint8_t                                           UnknownData01[0x4];                            // 0x007C (0x0004) FINAL PADDING
+	uint32_t                                           AttackerDemoFX : 1;                            // 0x0078 (0x0004) [0x0000000040000000] [0x00040000] (CPF_EditInlineNotify)
+	uint32_t                                           NewDriverChallengesV2 : 1;                     // 0x0078 (0x0004) [0x0000000040000000] [0x00080000] (CPF_EditInlineNotify)
+	uint32_t                                           TextModeration : 1;                            // 0x0078 (0x0004) [0x0000000040000000] [0x00400000] (CPF_EditInlineNotify)
+	uint32_t                                           FilterToggle : 1;                              // 0x0078 (0x0004) [0x0000000040000000] [0x00800000] (CPF_EditInlineNotify)
+	uint32_t                                           DdosPrevention : 1;                            // 0x0078 (0x0004) [0x0000000040000000] [0x01000000] (CPF_EditInlineNotify)
+	uint32_t                                           OunceEnhancements : 1;                         // 0x0078 (0x0004) [0x0000000040000000] [0x02000000] (CPF_EditInlineNotify)
+	uint32_t                                           FastFreeplay : 1;                              // 0x0078 (0x0004) [0x0000000040000000] [0x04000000] (CPF_EditInlineNotify)
+	uint32_t                                           MatchAdminMutator : 1;                         // 0x0078 (0x0004) [0x0000000040000000] [0x08000000] (CPF_EditInlineNotify)
+	uint32_t                                           Thistle : 1;                                   // 0x0078 (0x0004) [0x0000000040000000] [0x10000000] (CPF_EditInlineNotify)
 
 public:
 	static UClass* StaticClass()
@@ -3149,7 +3290,7 @@ public:
 	uint8_t                                           UnknownData00[0x8];                            // 0x0060 (0x0008) MISSED OFFSET
 	TArray<class FString>                              FormatExtension;                               // 0x0068 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
 	TArray<class FString>                              FormatDescription;                             // 0x0078 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
-	uint8_t                                           UnknownData01[0x10];                           // 0x0088 (0x0010) FINAL PADDING
+	uint8_t                                           UnknownData01[0x10];                           // 0x0088 (0x0010) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -3593,7 +3734,6 @@ public:
 class UHelpCommandlet : public UCommandlet
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00B4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -3654,6 +3794,7 @@ public:
 		return uClassPointer;
 	};
 
+	static TArray<uint8_t> PadAndDecodeString(class FString Input);
 	static void DecodeStringInline(class FString Input, TArray<uint8_t>& Output);
 	static TArray<uint8_t> DecodeString(class FString Input);
 	static void DecodeInline(TArray<uint8_t>& Input, TArray<uint8_t>& Output);
@@ -3783,7 +3924,7 @@ public:
 class UState : public UStruct
 {
 public:
-	uint8_t                                           UnknownData00[0x60];                           // 0x0130 (0x0060) FINAL PADDING
+	uint8_t                                           UnknownData00[0x60];                           // 0x0130 (0x0060) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -3805,7 +3946,7 @@ public:
 class UPackage : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0xE8];                           // 0x0060 (0x00E8) FINAL PADDING
+	uint8_t                                           UnknownData00[0xE8];                           // 0x0060 (0x00E8) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -3827,7 +3968,7 @@ public:
 class UClass : public UState
 {
 public:
-	uint8_t                                           UnknownData00[0x228];                          // 0x0190 (0x0228) FINAL PADDING
+	uint8_t                                           UnknownData00[0x228];                          // 0x0190 (0x0228) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()

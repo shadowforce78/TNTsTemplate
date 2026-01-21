@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: IpDrv_classes.cpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #include "../SdkHeaders.hpp"
@@ -271,29 +271,6 @@ class FString UOnlineSubsystemCommonImpl::eventGetPlayerNicknameFromIndex(int32_
 	this->ProcessEvent(uFnGetPlayerNicknameFromIndex, &GetPlayerNicknameFromIndex_Params, nullptr);
 
 	return GetPlayerNicknameFromIndex_Params.ReturnValue;
-};
-
-// Function IpDrv.OnlineSubsystemCommonImpl.OnPlayerCountryRetrieved
-// [0x00120000] (FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
-// Parameter Info:
-// struct FUniqueNetId            PlayerID                       (CPF_Parm | CPF_NeedCtorLink)
-// class FString                  Country                        (CPF_Parm | CPF_NeedCtorLink)
-
-void UOnlineSubsystemCommonImpl::OnPlayerCountryRetrieved(struct FUniqueNetId PlayerID, class FString Country)
-{
-	static UFunction* uFnOnPlayerCountryRetrieved = nullptr;
-
-	if (!uFnOnPlayerCountryRetrieved)
-	{
-		uFnOnPlayerCountryRetrieved = UFunction::FindFunction("Function IpDrv.OnlineSubsystemCommonImpl.OnPlayerCountryRetrieved");
-	}
-
-	UOnlineSubsystemCommonImpl_execOnPlayerCountryRetrieved_Params OnPlayerCountryRetrieved_Params;
-	memset(&OnPlayerCountryRetrieved_Params, 0, sizeof(OnPlayerCountryRetrieved_Params));
-	memcpy_s(&OnPlayerCountryRetrieved_Params.PlayerID, sizeof(OnPlayerCountryRetrieved_Params.PlayerID), &PlayerID, sizeof(PlayerID));
-	memcpy_s(&OnPlayerCountryRetrieved_Params.Country, sizeof(OnPlayerCountryRetrieved_Params.Country), &Country, sizeof(Country));
-
-	this->ProcessEvent(uFnOnPlayerCountryRetrieved, &OnPlayerCountryRetrieved_Params, nullptr);
 };
 
 // Function IpDrv.OnlineSubsystemCommonImpl.OnSanitizeStringComplete

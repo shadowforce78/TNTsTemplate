@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: Engine_parameters.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -4256,7 +4256,7 @@ struct AHUD_execDrawHUD_Params
 };
 
 // Function Engine.HUD.PostRender
-// [0x00020803] 
+// [0x00028803] 
 struct AHUD_eventPostRender_Params
 {
 	// float                                              XL;                                               		// 0x0000 (0x0004) [0x0000000000000000]               
@@ -8078,7 +8078,7 @@ struct UCanvas_execSetPos_Params
 };
 
 // Function Engine.Canvas.GetDefaultCanvasFont
-// [0x00020003] 
+// [0x00028003] 
 struct UCanvas_execGetDefaultCanvasFont_Params
 {
 	class UFont*                                       ReturnValue;                                      		// 0x0000 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -17307,7 +17307,7 @@ struct UGameViewportClient_execDisplayProgressMessage_Params
 };
 
 // Function Engine.GameViewportClient.PostRender
-// [0x00020802] 
+// [0x00028802] 
 struct UGameViewportClient_eventPostRender_Params
 {
 	class UCanvas*                                     Canvas;                                           		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
@@ -17321,7 +17321,7 @@ struct UGameViewportClient_execDrawTitleSafeArea_Params
 };
 
 // Function Engine.GameViewportClient.Tick
-// [0x00020801] 
+// [0x00028801] 
 struct UGameViewportClient_eventTick_Params
 {
 	float                                              DeltaTime;                                        		// 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -17597,7 +17597,7 @@ struct UGameViewportClient_execGetMousePosition_Params
 };
 
 // Function Engine.GameViewportClient.IsFullScreenViewport
-// [0x00020401] 
+// [0x00028401] 
 struct UGameViewportClient_execIsFullScreenViewport_Params
 {
 	uint32_t                                           ReturnValue : 1;                                  		// 0x0000 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
@@ -17655,6 +17655,14 @@ struct UGameViewportClient_execEventGamepadInputAPIChanged_Params
 struct UGameViewportClient_execEventScaleformEnabledChanged_Params
 {
 	class UGameViewportClient*                         GVC;                                              		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+};
+
+// Function Engine.GameViewportClient.EventScreenDraggedOnNewScreen
+// [0x00120001] 
+struct UGameViewportClient_execEventScreenDraggedOnNewScreen_Params
+{
+	int32_t                                            NewWidth;                                         		// 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
+	int32_t                                            NewHeight;                                        		// 0x0004 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
 // Function Engine.GameViewportClient.HandleInputChar
@@ -18168,6 +18176,13 @@ struct USurface_execGetSurfaceWidth_Params
 	float                                              ReturnValue;                                      		// 0x0000 (0x0004) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
+// Function Engine.MaterialInterface.WaitForMipLevelsToStream
+// [0x00020401] 
+struct UMaterialInterface_execWaitForMipLevelsToStream_Params
+{
+	float                                              MaxWaitSeconds;                                   		// 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
+};
+
 // Function Engine.MaterialInterface.GetOrCreateInstance
 // [0x00020401] 
 struct UMaterialInterface_execGetOrCreateInstance_Params
@@ -18521,7 +18536,7 @@ struct UInteraction_eventPostRender_Params
 };
 
 // Function Engine.Interaction.Tick
-// [0x00020801] 
+// [0x00028801] 
 struct UInteraction_eventTick_Params
 {
 	float                                              DeltaTime;                                        		// 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
@@ -32636,22 +32651,7 @@ struct UOnlinePlayerInterface_execGetPlayerLanguage_Params
 struct UOnlinePlayerInterface_execGetPlayerCountry_Params
 {
 	uint8_t                                            LocalUserNum;                                     		// 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
-};
-
-// Function Engine.OnlinePlayerInterface.ClearReadPlayerCountryDelegate
-// [0x00020000] 
-struct UOnlinePlayerInterface_execClearReadPlayerCountryDelegate_Params
-{
-	uint8_t                                            LocalUserNum;                                     		// 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
-	struct FScriptDelegate                             ReadPlayerCountryDelegate;                        		// 0x0008 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-};
-
-// Function Engine.OnlinePlayerInterface.AddReadPlayerCountryDelegate
-// [0x00020000] 
-struct UOnlinePlayerInterface_execAddReadPlayerCountryDelegate_Params
-{
-	uint8_t                                            LocalUserNum;                                     		// 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
-	struct FScriptDelegate                             ReadPlayerCountryDelegate;                        		// 0x0008 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	class FString                                      ReturnValue;                                      		// 0x0008 (0x0010) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
 // Function Engine.OnlinePlayerInterface.GetAchievements
@@ -33955,14 +33955,6 @@ struct UOnlinePlayerInterface_execShowLoginUI_Params
 struct UOnlinePlayerInterface_execCanPlayOnlineChanged_Params
 {
 	uint8_t                                            LocalUserNum;                                     		// 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
-};
-
-// Function Engine.OnlinePlayerInterface.OnPlayerCountryRetrieved
-// [0x00120000] 
-struct UOnlinePlayerInterface_execOnPlayerCountryRetrieved_Params
-{
-	struct FUniqueNetId                                PlayerID;                                         		// 0x0000 (0x0048) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-	class FString                                      Country;                                          		// 0x0048 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
 // Function Engine.OnlinePlayerInterface.FriendPresenceChange
@@ -36782,6 +36774,27 @@ struct UOnlinePurchaseInterface_execEventGetAppPriceInfoComplete_Params
 	int32_t                                            DiscountPercentage;                               		// 0x0028 (0x0004) [0x0000000000000080] (CPF_Parm)    
 };
 
+// Function Engine.OnlineSystemInterface.ClearCaptureAvailabilityChangeDelegate
+// [0x00020000] 
+struct UOnlineSystemInterface_execClearCaptureAvailabilityChangeDelegate_Params
+{
+	struct FScriptDelegate                             CaptureAvailabilityDelegate;                      		// 0x0000 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+};
+
+// Function Engine.OnlineSystemInterface.AddCaptureAvailabilityChangeDelegate
+// [0x00020000] 
+struct UOnlineSystemInterface_execAddCaptureAvailabilityChangeDelegate_Params
+{
+	struct FScriptDelegate                             CaptureAvailabilityDelegate;                      		// 0x0000 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+};
+
+// Function Engine.OnlineSystemInterface.OnCaptureAvailabilityChange
+// [0x00120000] 
+struct UOnlineSystemInterface_execOnCaptureAvailabilityChange_Params
+{
+	uint32_t                                           bCaptureAllowed : 1;                              		// 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+};
+
 // Function Engine.OnlineSystemInterface.ClearPlayerSigningOutDelegate
 // [0x00020000] 
 struct UOnlineSystemInterface_execClearPlayerSigningOutDelegate_Params
@@ -37851,7 +37864,7 @@ struct USeqAct_SetMatInstVectorParam_eventGetObjClassVersion_Params
 };
 
 // Function Engine.SeqAct_SetVector.Activated
-// [0x400820802] 
+// [0x400828802] 
 struct USeqAct_SetVector_eventActivated_Params
 {
 	// uint32_t                                           bIgnoreDefault : 1;                               		// 0x0000 (0x0004) [0x0000000000000000] [0x00000001] 

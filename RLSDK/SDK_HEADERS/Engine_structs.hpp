@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: Engine_structs.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -1495,6 +1495,7 @@ struct FTextureGroupContainer
 	uint32_t                                           TEXTUREGROUP_Terrain_Weightmap : 1;            // 0x0000 (0x0004) [0x0000000000000003] [0x02000000] (CPF_Edit | CPF_Const)
 	uint32_t                                           TEXTUREGROUP_ImageBasedReflection : 1;         // 0x0000 (0x0004) [0x0000000000000003] [0x04000000] (CPF_Edit | CPF_Const)
 	uint32_t                                           TEXTUREGROUP_Bokeh : 1;                        // 0x0000 (0x0004) [0x0000000000000003] [0x08000000] (CPF_Edit | CPF_Const)
+	uint32_t                                           TEXTUREGROUP_Pitch : 1;                        // 0x0000 (0x0004) [0x0000000000000003] [0x10000000] (CPF_Edit | CPF_Const)
 };
 
 // ScriptStruct Engine.Texture2D.Texture2DMipMap

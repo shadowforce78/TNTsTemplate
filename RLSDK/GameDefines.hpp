@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: GameDefines.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -168,9 +168,9 @@ enum EObjectFlags
 */
 
 // GObjects
-#define GObjects_Offset		(uintptr_t)0x0243C918
+#define GObjects_Offset		(uintptr_t)0x023ED5B8
 // GNames
-#define GNames_Offset		(uintptr_t)0x0243C8D0
+#define GNames_Offset		(uintptr_t)0x023ED570
 
 /*
 # ========================================================================================= #

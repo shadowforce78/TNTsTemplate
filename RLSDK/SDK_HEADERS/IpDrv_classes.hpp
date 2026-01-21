@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: IpDrv_classes.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -422,7 +422,7 @@ public:
 };
 
 // Class IpDrv.OnlineSubsystemCommonImpl
-// 0x0060 (0x0378 - 0x03D8)
+// 0x0048 (0x0378 - 0x03C0)
 class UOnlineSubsystemCommonImpl : public UOnlineSubsystem
 {
 public:
@@ -434,7 +434,6 @@ public:
 	class UOnlineAuthInterfaceImpl*                    AuthInterfaceImpl;                             // 0x0398 (0x0008) [0x0000000000000000]               
 	class UOnlinePurchaseInterfaceImpl*                PurchaseInterfaceImpl;                         // 0x03A0 (0x0008) [0x0000000000000000]               
 	struct FScriptDelegate                             __OnSanitizeStringComplete__Delegate;          // 0x03A8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __OnPlayerCountryRetrieved__Delegate;          // 0x03C0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 
 public:
 	static UClass* StaticClass()
@@ -452,7 +451,6 @@ public:
 	void GetRegisteredPlayers(struct FName SessionName, TArray<struct FUniqueNetId>& OutRegisteredPlayers);
 	bool IsPlayerInSession(struct FName SessionName, struct FUniqueNetId PlayerID);
 	class FString eventGetPlayerNicknameFromIndex(int32_t UserIndex);
-	void OnPlayerCountryRetrieved(struct FUniqueNetId PlayerID, class FString Country);
 	void OnSanitizeStringComplete(struct FWordFilterResult Result);
 };
 
@@ -564,7 +562,7 @@ public:
 	int32_t                                            ProxyServerPort;                               // 0x0AC0 (0x0004) [0x0000000000004000] (CPF_Config)  
 	uint32_t                                           MaxRedirection : 1;                            // 0x0AC4 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
 	float                                              ConnectionTimeout;                             // 0x0AC8 (0x0004) [0x0000000000004000] (CPF_Config)  
-	uint8_t                                           UnknownData00[0x124];                          // 0x0ACC (0x0124) FINAL PADDING
+	uint8_t                                           UnknownData00[0x124];                          // 0x0ACC (0x0124) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2088,7 +2086,7 @@ public:
 class UTcpipConnection : public UNetConnection
 {
 public:
-	uint8_t                                           UnknownData00[0x28];                           // 0xB1F0 (0x0028) FINAL PADDING
+	uint8_t                                           UnknownData00[0x28];                           // 0xB1F0 (0x0028) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -2106,14 +2104,14 @@ public:
 };
 
 // Class IpDrv.TcpNetDriver
-// 0x0080 (0x0258 - 0x02D8)
+// 0x0080 (0x0298 - 0x0318)
 class UTcpNetDriver : public UNetDriver
 {
 public:
-	uint8_t                                           UnknownData00[0x58];                           // 0x0258 (0x0058) MISSED OFFSET
-	uint32_t                                           AllowPlayerPortUnreach : 1;                    // 0x02B0 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
-	uint32_t                                           LogPortUnreach : 1;                            // 0x02B4 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
-	uint8_t                                           UnknownData01[0x20];                           // 0x02B8 (0x0020) FINAL PADDING
+	uint8_t                                           UnknownData00[0x58];                           // 0x0298 (0x0058) MISSED OFFSET
+	uint32_t                                           AllowPlayerPortUnreach : 1;                    // 0x02F0 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
+	uint32_t                                           LogPortUnreach : 1;                            // 0x02F4 (0x0004) [0x0000000000004000] [0x00000001] (CPF_Config)
+	uint8_t                                           UnknownData01[0x20];                           // 0x02F8 (0x0020) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()

@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: WinDrv_classes.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -149,7 +149,7 @@ public:
 	class UClass*                                      AudioDeviceClass;                              // 0x0278 (0x0008) [0x0000000000004000] (CPF_Config)  
 	uint8_t                                           UnknownData01[0x38];                           // 0x0280 (0x0038) MISSED OFFSET
 	int32_t                                            AllowJoystickInput;                            // 0x02B8 (0x0004) [0x0000000000004000] (CPF_Config)  
-	uint8_t                                           UnknownData02[0x104];                          // 0x02BC (0x0104) FINAL PADDING
+	uint8_t                                           UnknownData02[0x104];                          // 0x02BC (0x0104) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -171,7 +171,7 @@ public:
 class UXnaForceFeedbackManager : public UForceFeedbackManager
 {
 public:
-	uint8_t                                           UnknownData00[0x18];                           // 0x0098 (0x0018) FINAL PADDING
+	uint8_t                                           UnknownData00[0x18];                           // 0x0098 (0x0018) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()

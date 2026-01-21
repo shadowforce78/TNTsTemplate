@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: XAudio2_classes.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -40,7 +40,7 @@
 class UXAudio2Device : public UAudioDevice
 {
 public:
-	uint8_t                                           UnknownData00[0xBC];                           // 0x03A4 (0x00BC) FINAL PADDING
+	uint8_t                                           UnknownData00[0xBC];                           // 0x03A4 (0x00BC) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()

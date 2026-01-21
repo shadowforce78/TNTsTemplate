@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: OnlineSubsystemEOS_parameters.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -20,6 +20,77 @@
 # Parameters
 # ========================================================================================= #
 */
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.ClearCaptureAvailabilityChangeDelegate
+// [0x00020001] 
+struct UOnlineSubsystemEOS_execClearCaptureAvailabilityChangeDelegate_Params
+{
+	struct FScriptDelegate                             CaptureAvailabilityDelegate;                      		// 0x0000 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+};
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.AddCaptureAvailabilityChangeDelegate
+// [0x00020001] 
+struct UOnlineSubsystemEOS_execAddCaptureAvailabilityChangeDelegate_Params
+{
+	struct FScriptDelegate                             CaptureAvailabilityDelegate;                      		// 0x0000 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+};
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.OnCaptureAvailabilityChange
+// [0x00120001] 
+struct UOnlineSubsystemEOS_execOnCaptureAvailabilityChange_Params
+{
+	uint32_t                                           bCaptureAllowed : 1;                              		// 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
+};
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.EventTextMessageValidated
+// [0x00120001] 
+struct UOnlineSubsystemEOS_execEventTextMessageValidated_Params
+{
+	uint32_t                                           bMessageValid : 1;                                		// 0x0000 (0x0004) [0x0001000000000080] [0x00000001] (CPF_Parm)
+	int32_t                                            RequestID;                                        		// 0x0004 (0x0004) [0x0001000000000080] (CPF_Parm)    
+};
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.EventTextMessageSigned
+// [0x00120001] 
+struct UOnlineSubsystemEOS_execEventTextMessageSigned_Params
+{
+	class FString                                      Signature;                                        		// 0x0000 (0x0010) [0x0001000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	int32_t                                            RequestID;                                        		// 0x0010 (0x0004) [0x0001000000000080] (CPF_Parm)    
+};
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.EventCryptoKeyCreated
+// [0x00120001] 
+struct UOnlineSubsystemEOS_execEventCryptoKeyCreated_Params
+{
+	class FString                                      EpicAccountId;                                    		// 0x0000 (0x0010) [0x0001000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	class FString                                      PublicKey;                                        		// 0x0010 (0x0010) [0x0001000000400080] (CPF_Parm | CPF_NeedCtorLink)
+};
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.ValidateTextMessage
+// [0x00420401] 
+struct UOnlineSubsystemEOS_execValidateTextMessage_Params
+{
+	class FString                                      Message;                                          		// 0x0000 (0x0010) [0x0001000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
+	class FString                                      PublicKey;                                        		// 0x0010 (0x0010) [0x0001000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
+	class FString                                      Signature;                                        		// 0x0020 (0x0010) [0x0001000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
+	int32_t                                            RequestID;                                        		// 0x0030 (0x0004) [0x0001000000000082] (CPF_Const | CPF_Parm)
+};
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.SignTextMessage
+// [0x00420401] 
+struct UOnlineSubsystemEOS_execSignTextMessage_Params
+{
+	class FString                                      EpicAccountId;                                    		// 0x0000 (0x0010) [0x0001000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
+	class FString                                      Message;                                          		// 0x0010 (0x0010) [0x0001000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
+	int32_t                                            RequestID;                                        		// 0x0020 (0x0004) [0x0001000000000082] (CPF_Const | CPF_Parm)
+};
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.GenerateCryptoKeyForUser
+// [0x00420401] 
+struct UOnlineSubsystemEOS_execGenerateCryptoKeyForUser_Params
+{
+	class FString                                      EpicAccountId;                                    		// 0x0000 (0x0010) [0x0001000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
+};
 
 // Function OnlineSubsystemEOS.OnlineSubsystemEOS.ShowEOSVoiceAgreement
 // [0x00020401] 
@@ -1504,35 +1575,12 @@ struct UOnlinePlayerInterfaceEOS_execHideKeyboardUI_Params
 	uint32_t                                           ReturnValue : 1;                                  		// 0x0004 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
-// Function OnlineSubsystemEOS.OnlinePlayerInterfaceEOS.ClearReadPlayerCountryDelegate
-// [0x00020001] 
-struct UOnlinePlayerInterfaceEOS_execClearReadPlayerCountryDelegate_Params
-{
-	uint8_t                                            LocalUserNum;                                     		// 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
-	struct FScriptDelegate                             ReadPlayerCountryDelegate;                        		// 0x0008 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-};
-
-// Function OnlineSubsystemEOS.OnlinePlayerInterfaceEOS.AddReadPlayerCountryDelegate
-// [0x00020001] 
-struct UOnlinePlayerInterfaceEOS_execAddReadPlayerCountryDelegate_Params
-{
-	uint8_t                                            LocalUserNum;                                     		// 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
-	struct FScriptDelegate                             ReadPlayerCountryDelegate;                        		// 0x0008 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-};
-
-// Function OnlineSubsystemEOS.OnlinePlayerInterfaceEOS.OnPlayerCountryRetrieved
-// [0x00120001] 
-struct UOnlinePlayerInterfaceEOS_execOnPlayerCountryRetrieved_Params
-{
-	struct FUniqueNetId                                PlayerID;                                         		// 0x0000 (0x0048) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-	class FString                                      Country;                                          		// 0x0048 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-};
-
 // Function OnlineSubsystemEOS.OnlinePlayerInterfaceEOS.GetPlayerCountry
-// [0x00020001] 
+// [0x00020401] 
 struct UOnlinePlayerInterfaceEOS_execGetPlayerCountry_Params
 {
 	uint8_t                                            LocalUserNum;                                     		// 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	class FString                                      ReturnValue;                                      		// 0x0008 (0x0010) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
 };
 
 // Function OnlineSubsystemEOS.OnlinePlayerInterfaceEOS.ClearAvatarChangeDelegate

@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.0) SDK
+# RocketLeague (6.9.6.9) SDK
 # Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: SdkHeaders.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK, rfs_what, SziCx
-# Links: www.github.com/CodeRedModding/CodeRed-Generator
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -17,13 +17,12 @@
 # ========================================================================================= #
 */
 
-#include "GameDefines.hpp"
-#include "SDK_HEADERS\Core_structs.hpp"
-#include "SDK_HEADERS\Core_classes.hpp"
-#include "SDK_HEADERS\Core_parameters.hpp"
 #include "SDK_HEADERS\Engine_structs.hpp"
 #include "SDK_HEADERS\Engine_classes.hpp"
 #include "SDK_HEADERS\Engine_parameters.hpp"
+#include "SDK_HEADERS\Core_structs.hpp"
+#include "SDK_HEADERS\Core_classes.hpp"
+#include "SDK_HEADERS\Core_parameters.hpp"
 #include "SDK_HEADERS\IpDrv_structs.hpp"
 #include "SDK_HEADERS\IpDrv_classes.hpp"
 #include "SDK_HEADERS\IpDrv_parameters.hpp"

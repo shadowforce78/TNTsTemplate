@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: Core_classes.cpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #include "../SdkHeaders.hpp"
@@ -5637,6 +5637,108 @@ class FString UObject::Split(class FString Text, class FString SplitStr, bool bO
 	return Split_Params.ReturnValue;
 };
 
+// Function Core.Object.TCharToUTF8
+// [0x00022401] (FUNC_Final | FUNC_Native | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+// class FString                  Src                            (CPF_Parm | CPF_NeedCtorLink)
+
+class FString UObject::TCharToUTF8(class FString Src)
+{
+	static UFunction* uFnTCharToUTF8 = nullptr;
+
+	if (!uFnTCharToUTF8)
+	{
+		uFnTCharToUTF8 = UFunction::FindFunction("Function Core.Object.TCharToUTF8");
+	}
+
+	UObject_execTCharToUTF8_Params TCharToUTF8_Params;
+	memset(&TCharToUTF8_Params, 0, sizeof(TCharToUTF8_Params));
+	memcpy_s(&TCharToUTF8_Params.Src, sizeof(TCharToUTF8_Params.Src), &Src, sizeof(Src));
+
+	uFnTCharToUTF8->FunctionFlags &= ~0x400;
+	UObject::StaticClass()->ProcessEvent(uFnTCharToUTF8, &TCharToUTF8_Params, nullptr);
+	uFnTCharToUTF8->FunctionFlags |= 0x400;
+
+	return TCharToUTF8_Params.ReturnValue;
+};
+
+// Function Core.Object.UTF8ToTChar
+// [0x00022401] (FUNC_Final | FUNC_Native | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+// class FString                  Src                            (CPF_Parm | CPF_NeedCtorLink)
+
+class FString UObject::UTF8ToTChar(class FString Src)
+{
+	static UFunction* uFnUTF8ToTChar = nullptr;
+
+	if (!uFnUTF8ToTChar)
+	{
+		uFnUTF8ToTChar = UFunction::FindFunction("Function Core.Object.UTF8ToTChar");
+	}
+
+	UObject_execUTF8ToTChar_Params UTF8ToTChar_Params;
+	memset(&UTF8ToTChar_Params, 0, sizeof(UTF8ToTChar_Params));
+	memcpy_s(&UTF8ToTChar_Params.Src, sizeof(UTF8ToTChar_Params.Src), &Src, sizeof(Src));
+
+	uFnUTF8ToTChar->FunctionFlags &= ~0x400;
+	UObject::StaticClass()->ProcessEvent(uFnUTF8ToTChar, &UTF8ToTChar_Params, nullptr);
+	uFnUTF8ToTChar->FunctionFlags |= 0x400;
+
+	return UTF8ToTChar_Params.ReturnValue;
+};
+
+// Function Core.Object.MakeAsciiSafe
+// [0x00022003] (FUNC_Final | FUNC_Defined | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+// class FString                  InStr                          (CPF_Parm | CPF_NeedCtorLink)
+
+class FString UObject::MakeAsciiSafe(class FString InStr)
+{
+	static UFunction* uFnMakeAsciiSafe = nullptr;
+
+	if (!uFnMakeAsciiSafe)
+	{
+		uFnMakeAsciiSafe = UFunction::FindFunction("Function Core.Object.MakeAsciiSafe");
+	}
+
+	UObject_execMakeAsciiSafe_Params MakeAsciiSafe_Params;
+	memset(&MakeAsciiSafe_Params, 0, sizeof(MakeAsciiSafe_Params));
+	memcpy_s(&MakeAsciiSafe_Params.InStr, sizeof(MakeAsciiSafe_Params.InStr), &InStr, sizeof(InStr));
+
+	UObject::StaticClass()->ProcessEvent(uFnMakeAsciiSafe, &MakeAsciiSafe_Params, nullptr);
+
+	return MakeAsciiSafe_Params.ReturnValue;
+};
+
+// Function Core.Object.PadRight
+// [0x00026003] (FUNC_Final | FUNC_Defined | FUNC_Static | FUNC_NoExport | FUNC_OptionalParm | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// class FString                  ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+// class FString                  S                              (CPF_Parm | CPF_NeedCtorLink)
+// int32_t                        WidthChars                     (CPF_OptionalParm | CPF_Parm)
+
+class FString UObject::PadRight(class FString S, int32_t WidthChars)
+{
+	static UFunction* uFnPadRight = nullptr;
+
+	if (!uFnPadRight)
+	{
+		uFnPadRight = UFunction::FindFunction("Function Core.Object.PadRight");
+	}
+
+	UObject_execPadRight_Params PadRight_Params;
+	memset(&PadRight_Params, 0, sizeof(PadRight_Params));
+	memcpy_s(&PadRight_Params.S, sizeof(PadRight_Params.S), &S, sizeof(S));
+	memcpy_s(&PadRight_Params.WidthChars, sizeof(PadRight_Params.WidthChars), &WidthChars, sizeof(WidthChars));
+
+	UObject::StaticClass()->ProcessEvent(uFnPadRight, &PadRight_Params, nullptr);
+
+	return PadRight_Params.ReturnValue;
+};
+
 // Function Core.Object.StartsWith
 // [0x00022401] (FUNC_Final | FUNC_Native | FUNC_Static | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -10297,6 +10399,66 @@ bool UObject::EqualEqual_QWordInt(uint64_t A, int32_t B)
 	return EqualEqual_QWordInt_Params.ReturnValue;
 };
 
+// Function Core.Object.SubtractEqual_QWordQWord
+// [0x00423401] (FUNC_Final | FUNC_Native | FUNC_Operator | FUNC_Static | FUNC_Public | FUNC_HasOutParms | FUNC_AllFlags)
+// Parameter Info:
+// uint64_t                       ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// uint64_t                       B                              (CPF_Parm)
+// uint64_t                       A                              (CPF_Parm | CPF_OutParm)
+
+uint64_t UObject::SubtractEqual_QWordQWord(uint64_t B, uint64_t& A)
+{
+	static UFunction* uFnSubtractEqual_QWordQWord = nullptr;
+
+	if (!uFnSubtractEqual_QWordQWord)
+	{
+		uFnSubtractEqual_QWordQWord = UFunction::FindFunction("Function Core.Object.SubtractEqual_QWordQWord");
+	}
+
+	UObject_execSubtractEqual_QWordQWord_Params SubtractEqual_QWordQWord_Params;
+	memset(&SubtractEqual_QWordQWord_Params, 0, sizeof(SubtractEqual_QWordQWord_Params));
+	SubtractEqual_QWordQWord_Params.B = B;
+	SubtractEqual_QWordQWord_Params.A = A;
+
+	uFnSubtractEqual_QWordQWord->FunctionFlags &= ~0x400;
+	UObject::StaticClass()->ProcessEvent(uFnSubtractEqual_QWordQWord, &SubtractEqual_QWordQWord_Params, nullptr);
+	uFnSubtractEqual_QWordQWord->FunctionFlags |= 0x400;
+
+	A = SubtractEqual_QWordQWord_Params.A;
+
+	return SubtractEqual_QWordQWord_Params.ReturnValue;
+};
+
+// Function Core.Object.AddEqual_QWordQWord
+// [0x00423401] (FUNC_Final | FUNC_Native | FUNC_Operator | FUNC_Static | FUNC_Public | FUNC_HasOutParms | FUNC_AllFlags)
+// Parameter Info:
+// uint64_t                       ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// uint64_t                       B                              (CPF_Parm)
+// uint64_t                       A                              (CPF_Parm | CPF_OutParm)
+
+uint64_t UObject::AddEqual_QWordQWord(uint64_t B, uint64_t& A)
+{
+	static UFunction* uFnAddEqual_QWordQWord = nullptr;
+
+	if (!uFnAddEqual_QWordQWord)
+	{
+		uFnAddEqual_QWordQWord = UFunction::FindFunction("Function Core.Object.AddEqual_QWordQWord");
+	}
+
+	UObject_execAddEqual_QWordQWord_Params AddEqual_QWordQWord_Params;
+	memset(&AddEqual_QWordQWord_Params, 0, sizeof(AddEqual_QWordQWord_Params));
+	AddEqual_QWordQWord_Params.B = B;
+	AddEqual_QWordQWord_Params.A = A;
+
+	uFnAddEqual_QWordQWord->FunctionFlags &= ~0x400;
+	UObject::StaticClass()->ProcessEvent(uFnAddEqual_QWordQWord, &AddEqual_QWordQWord_Params, nullptr);
+	uFnAddEqual_QWordQWord->FunctionFlags |= 0x400;
+
+	A = AddEqual_QWordQWord_Params.A;
+
+	return AddEqual_QWordQWord_Params.ReturnValue;
+};
+
 // Function Core.Object.NotEqual_QWordQWord
 // [0x00023401] (FUNC_Final | FUNC_Native | FUNC_Operator | FUNC_Static | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
@@ -10519,6 +10681,62 @@ uint64_t UObject::Add_QWordQWord(uint64_t A, uint64_t B)
 	uFnAdd_QWordQWord->FunctionFlags |= 0x400;
 
 	return Add_QWordQWord_Params.ReturnValue;
+};
+
+// Function Core.Object.Divide_QWordQWord
+// [0x00023401] (FUNC_Final | FUNC_Native | FUNC_Operator | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// uint64_t                       ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// uint64_t                       A                              (CPF_Parm)
+// uint64_t                       B                              (CPF_Parm)
+
+uint64_t UObject::Divide_QWordQWord(uint64_t A, uint64_t B)
+{
+	static UFunction* uFnDivide_QWordQWord = nullptr;
+
+	if (!uFnDivide_QWordQWord)
+	{
+		uFnDivide_QWordQWord = UFunction::FindFunction("Function Core.Object.Divide_QWordQWord");
+	}
+
+	UObject_execDivide_QWordQWord_Params Divide_QWordQWord_Params;
+	memset(&Divide_QWordQWord_Params, 0, sizeof(Divide_QWordQWord_Params));
+	Divide_QWordQWord_Params.A = A;
+	Divide_QWordQWord_Params.B = B;
+
+	uFnDivide_QWordQWord->FunctionFlags &= ~0x400;
+	UObject::StaticClass()->ProcessEvent(uFnDivide_QWordQWord, &Divide_QWordQWord_Params, nullptr);
+	uFnDivide_QWordQWord->FunctionFlags |= 0x400;
+
+	return Divide_QWordQWord_Params.ReturnValue;
+};
+
+// Function Core.Object.Multiply_QWordQWord
+// [0x00023401] (FUNC_Final | FUNC_Native | FUNC_Operator | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// uint64_t                       ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+// uint64_t                       A                              (CPF_Parm)
+// uint64_t                       B                              (CPF_Parm)
+
+uint64_t UObject::Multiply_QWordQWord(uint64_t A, uint64_t B)
+{
+	static UFunction* uFnMultiply_QWordQWord = nullptr;
+
+	if (!uFnMultiply_QWordQWord)
+	{
+		uFnMultiply_QWordQWord = UFunction::FindFunction("Function Core.Object.Multiply_QWordQWord");
+	}
+
+	UObject_execMultiply_QWordQWord_Params Multiply_QWordQWord_Params;
+	memset(&Multiply_QWordQWord_Params, 0, sizeof(Multiply_QWordQWord_Params));
+	Multiply_QWordQWord_Params.A = A;
+	Multiply_QWordQWord_Params.B = B;
+
+	uFnMultiply_QWordQWord->FunctionFlags &= ~0x400;
+	UObject::StaticClass()->ProcessEvent(uFnMultiply_QWordQWord, &Multiply_QWordQWord_Params, nullptr);
+	uFnMultiply_QWordQWord->FunctionFlags |= 0x400;
+
+	return Multiply_QWordQWord_Params.ReturnValue;
 };
 
 // Function Core.Object.SubtractSubtract_Int
@@ -14457,6 +14675,30 @@ void UBreadcrumbs::BreadcrumbString(class FString Category, class FString Value)
 	uFnBreadcrumbString->FunctionFlags &= ~0x400;
 	this->ProcessEvent(uFnBreadcrumbString, &BreadcrumbString_Params, nullptr);
 	uFnBreadcrumbString->FunctionFlags |= 0x400;
+};
+
+// Function Core.Base64.PadAndDecodeString
+// [0x00022003] (FUNC_Final | FUNC_Defined | FUNC_Static | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// TArray<uint8_t>                ReturnValue                    (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+// class FString                  Input                          (CPF_Parm | CPF_NeedCtorLink)
+
+TArray<uint8_t> UBase64::PadAndDecodeString(class FString Input)
+{
+	static UFunction* uFnPadAndDecodeString = nullptr;
+
+	if (!uFnPadAndDecodeString)
+	{
+		uFnPadAndDecodeString = UFunction::FindFunction("Function Core.Base64.PadAndDecodeString");
+	}
+
+	UBase64_execPadAndDecodeString_Params PadAndDecodeString_Params;
+	memset(&PadAndDecodeString_Params, 0, sizeof(PadAndDecodeString_Params));
+	memcpy_s(&PadAndDecodeString_Params.Input, sizeof(PadAndDecodeString_Params.Input), &Input, sizeof(Input));
+
+	UBase64::StaticClass()->ProcessEvent(uFnPadAndDecodeString, &PadAndDecodeString_Params, nullptr);
+
+	return PadAndDecodeString_Params.ReturnValue;
 };
 
 // Function Core.Base64.DecodeStringInline

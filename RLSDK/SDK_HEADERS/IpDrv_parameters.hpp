@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: IpDrv_parameters.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -102,14 +102,6 @@ struct UOnlineSubsystemCommonImpl_eventGetPlayerNicknameFromIndex_Params
 {
 	int32_t                                            UserIndex;                                        		// 0x0000 (0x0004) [0x0000000000000080] (CPF_Parm)    
 	class FString                                      ReturnValue;                                      		// 0x0008 (0x0010) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
-};
-
-// Function IpDrv.OnlineSubsystemCommonImpl.OnPlayerCountryRetrieved
-// [0x00120000] 
-struct UOnlineSubsystemCommonImpl_execOnPlayerCountryRetrieved_Params
-{
-	struct FUniqueNetId                                PlayerID;                                         		// 0x0000 (0x0048) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-	class FString                                      Country;                                          		// 0x0048 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
 // Function IpDrv.OnlineSubsystemCommonImpl.OnSanitizeStringComplete

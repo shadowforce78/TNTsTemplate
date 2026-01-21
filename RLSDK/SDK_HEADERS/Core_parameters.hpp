@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: Core_parameters.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -1803,6 +1803,44 @@ struct UObject_execSplit_Params
 	// int32_t                                            pos;                                              		// 0x0038 (0x0004) [0x0000000000000000]               
 };
 
+// Function Core.Object.TCharToUTF8
+// [0x00022401] 
+struct UObject_execTCharToUTF8_Params
+{
+	class FString                                      Src;                                              		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	class FString                                      ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+};
+
+// Function Core.Object.UTF8ToTChar
+// [0x00022401] 
+struct UObject_execUTF8ToTChar_Params
+{
+	class FString                                      Src;                                              		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	class FString                                      ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+};
+
+// Function Core.Object.MakeAsciiSafe
+// [0x00022003] 
+struct UObject_execMakeAsciiSafe_Params
+{
+	class FString                                      InStr;                                            		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	class FString                                      ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+	// class FString                                      OutStr;                                           		// 0x0020 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	// class FString                                      Char;                                             		// 0x0030 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	// int32_t                                            I;                                                		// 0x0040 (0x0004) [0x0000000000000000]               
+	// int32_t                                            Code;                                             		// 0x0044 (0x0004) [0x0000000000000000]               
+};
+
+// Function Core.Object.PadRight
+// [0x00026003] 
+struct UObject_execPadRight_Params
+{
+	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	int32_t                                            WidthChars;                                       		// 0x0010 (0x0004) [0x0000000000000090] (CPF_OptionalParm | CPF_Parm)
+	class FString                                      ReturnValue;                                      		// 0x0018 (0x0010) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+	// int32_t                                            SourceLen;                                        		// 0x0028 (0x0004) [0x0000000000000000]               
+};
+
 // Function Core.Object.StartsWith
 // [0x00022401] 
 struct UObject_execStartsWith_Params
@@ -3257,6 +3295,24 @@ struct UObject_execEqualEqual_QWordInt_Params
 	uint32_t                                           ReturnValue : 1;                                  		// 0x000C (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
 };
 
+// Function Core.Object.SubtractEqual_QWordQWord
+// [0x00423401] 
+struct UObject_execSubtractEqual_QWordQWord_Params
+{
+	uint64_t                                           A;                                                		// 0x0000 (0x0008) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint64_t                                           B;                                                		// 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint64_t                                           ReturnValue;                                      		// 0x0010 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Core.Object.AddEqual_QWordQWord
+// [0x00423401] 
+struct UObject_execAddEqual_QWordQWord_Params
+{
+	uint64_t                                           A;                                                		// 0x0000 (0x0008) [0x0000000000000180] (CPF_Parm | CPF_OutParm)
+	uint64_t                                           B;                                                		// 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint64_t                                           ReturnValue;                                      		// 0x0010 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
 // Function Core.Object.NotEqual_QWordQWord
 // [0x00023401] 
 struct UObject_execNotEqual_QWordQWord_Params
@@ -3323,6 +3379,24 @@ struct UObject_execSubtract_QWordQWord_Params
 // Function Core.Object.Add_QWordQWord
 // [0x00023401] 
 struct UObject_execAdd_QWordQWord_Params
+{
+	uint64_t                                           A;                                                		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint64_t                                           B;                                                		// 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint64_t                                           ReturnValue;                                      		// 0x0010 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Core.Object.Divide_QWordQWord
+// [0x00023401] 
+struct UObject_execDivide_QWordQWord_Params
+{
+	uint64_t                                           A;                                                		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint64_t                                           B;                                                		// 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
+	uint64_t                                           ReturnValue;                                      		// 0x0010 (0x0008) [0x0000000000000580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Core.Object.Multiply_QWordQWord
+// [0x00023401] 
+struct UObject_execMultiply_QWordQWord_Params
 {
 	uint64_t                                           A;                                                		// 0x0000 (0x0008) [0x0000000000000080] (CPF_Parm)    
 	uint64_t                                           B;                                                		// 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
@@ -4518,6 +4592,17 @@ struct UBreadcrumbs_execBreadcrumbString_Params
 {
 	class FString                                      Category;                                         		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 	class FString                                      Value;                                            		// 0x0010 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+};
+
+// Function Core.Base64.PadAndDecodeString
+// [0x00022003] 
+struct UBase64_execPadAndDecodeString_Params
+{
+	class FString                                      Input;                                            		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	TArray<uint8_t>                                    ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000400580] (CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink)
+	// int32_t                                            PaddingRequired;                                  		// 0x0020 (0x0004) [0x0000000000000000]               
+	// class FString                                      PadString;                                        		// 0x0028 (0x0010) [0x0000000000400000] (CPF_NeedCtorLink)
+	// int32_t                                            Pad;                                              		// 0x0038 (0x0004) [0x0000000000000000]               
 };
 
 // Function Core.Base64.DecodeStringInline

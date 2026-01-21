@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: Engine_classes.hpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #pragma once
@@ -1078,7 +1078,8 @@ enum class ETextureGroup : uint8_t
 	TEXTUREGROUP_Terrain_Weightmap                     = 25,
 	TEXTUREGROUP_ImageBasedReflection                  = 26,
 	TEXTUREGROUP_Bokeh                                 = 27,
-	TEXTUREGROUP_END                                   = 28
+	TEXTUREGROUP_Pitch                                 = 28,
+	TEXTUREGROUP_END                                   = 29
 };
 
 // Enum Engine.Texture.TextureMipGenSettings
@@ -1951,7 +1952,8 @@ enum class EConsoleType : uint8_t
 	CONSOLE_Anaconda                                   = 15,
 	CONSOLE_Prospero                                   = 16,
 	CONSOLE_Scorpio                                    = 17,
-	CONSOLE_END                                        = 18
+	CONSOLE_Ounce                                      = 18,
+	CONSOLE_END                                        = 19
 };
 
 // Enum Engine.WorldInfo.EPreferredLightmapType
@@ -5127,7 +5129,6 @@ public:
 class ALightmassCharacterIndirectDetailVolume : public AVolume
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02A4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -5149,7 +5150,6 @@ public:
 class ALightmassImportanceVolume : public AVolume
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02A4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -5171,7 +5171,6 @@ public:
 class AMassiveLODOverrideVolume : public AVolume
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02A4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -5193,7 +5192,6 @@ public:
 class APathBlockingVolume : public AVolume
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02A4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -5378,7 +5376,6 @@ public:
 class APrecomputedVisibilityVolume : public AVolume
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02A4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -5426,7 +5423,6 @@ public:
 class ATriggerVolume : public AVolume
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02A4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -6610,7 +6606,6 @@ public:
 class APathNode : public ANavigationPoint
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0384 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -8012,7 +8007,6 @@ public:
 class UDrawPylonRadiusComponent : public UDrawSphereComponent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0274 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -8034,7 +8028,6 @@ public:
 class UDrawSoundRadiusComponent : public UDrawSphereComponent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0274 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -8203,20 +8196,21 @@ class USceneCaptureComponent : public UActorComponent
 public:
 	float                                              MaxCaptureTime;                                // 0x00A0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              CaptureTimeRemaining;                          // 0x00A4 (0x0004) [0x0000000000002002] (CPF_Const | CPF_Transient)
-	uint32_t                                           bEnabled : 1;                                  // 0x00A8 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
-	uint32_t                                           bEnablePostProcess : 1;                        // 0x00A8 (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
-	uint32_t                                           bEnableFog : 1;                                // 0x00A8 (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
-	uint32_t                                           bUseMainScenePostProcessSettings : 1;          // 0x00A8 (0x0004) [0x0000000000000001] [0x00000008] (CPF_Edit)
-	uint32_t                                           bSkipUpdateIfTextureUsersOccluded : 1;         // 0x00A8 (0x0004) [0x0000000000000001] [0x00000010] (CPF_Edit)
-	uint32_t                                           bSkipUpdateIfOwnerOccluded : 1;                // 0x00A8 (0x0004) [0x0000000000000001] [0x00000020] (CPF_Edit)
-	uint32_t                                           bSkipRenderingDepthPrepass : 1;                // 0x00A8 (0x0004) [0x0000000000000001] [0x00000040] (CPF_Edit)
-	struct FColor                                      ClearColor;                                    // 0x00AC (0x0004) [0x0000000000000001] (CPF_Edit)    
-	ESceneCaptureViewMode                              ViewMode;                                      // 0x00B0 (0x0001) [0x0000000000000001] (CPF_Edit)    
-	ESceneCapturePostMethod                            PostMethod;                                    // 0x00B1 (0x0001) [0x0000000000000001] (CPF_Edit)    
-	int32_t                                            SceneLOD;                                      // 0x00B4 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	int32_t                                            CubemapDesaturationAmount;                     // 0x00B8 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	float                                              CubemapSeamlessRoughness;                      // 0x00BC (0x0004) [0x0000000000000001] (CPF_Edit)    
-	float                                              FrameRate;                                     // 0x00C0 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
+	int32_t                                            TotalRenderFrames;                             // 0x00A8 (0x0004) [0x0000000000002000] (CPF_Transient)
+	uint32_t                                           bEnabled : 1;                                  // 0x00AC (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
+	uint32_t                                           bEnablePostProcess : 1;                        // 0x00AC (0x0004) [0x0000000000000001] [0x00000002] (CPF_Edit)
+	uint32_t                                           bEnableFog : 1;                                // 0x00AC (0x0004) [0x0000000000000001] [0x00000004] (CPF_Edit)
+	uint32_t                                           bUseMainScenePostProcessSettings : 1;          // 0x00AC (0x0004) [0x0000000000000001] [0x00000008] (CPF_Edit)
+	uint32_t                                           bSkipUpdateIfTextureUsersOccluded : 1;         // 0x00AC (0x0004) [0x0000000000000001] [0x00000010] (CPF_Edit)
+	uint32_t                                           bSkipUpdateIfOwnerOccluded : 1;                // 0x00AC (0x0004) [0x0000000000000001] [0x00000020] (CPF_Edit)
+	uint32_t                                           bSkipRenderingDepthPrepass : 1;                // 0x00AC (0x0004) [0x0000000000000001] [0x00000040] (CPF_Edit)
+	struct FColor                                      ClearColor;                                    // 0x00B0 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	ESceneCaptureViewMode                              ViewMode;                                      // 0x00B4 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	ESceneCapturePostMethod                            PostMethod;                                    // 0x00B5 (0x0001) [0x0000000000000001] (CPF_Edit)    
+	int32_t                                            SceneLOD;                                      // 0x00B8 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	int32_t                                            CubemapDesaturationAmount;                     // 0x00BC (0x0004) [0x0000000000000001] (CPF_Edit)    
+	float                                              CubemapSeamlessRoughness;                      // 0x00C0 (0x0004) [0x0000000000000001] (CPF_Edit)    
+	float                                              FrameRate;                                     // 0x00C4 (0x0004) [0x0000000000000003] (CPF_Edit | CPF_Const)
 	class UPostProcessChain*                           PostProcess;                                   // 0x00C8 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	float                                              MaxUpdateDist;                                 // 0x00D0 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              MaxViewDistanceOverride;                       // 0x00D4 (0x0004) [0x0000000000000001] (CPF_Edit)    
@@ -8687,7 +8681,6 @@ public:
 class UActorFactoryCoverLink : public UActorFactory
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x009C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -8709,7 +8702,6 @@ public:
 class UActorFactoryDominantDirectionalLight : public UActorFactory
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x009C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -8731,7 +8723,6 @@ public:
 class UActorFactoryDominantDirectionalLightMovable : public UActorFactory
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x009C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -8782,7 +8773,6 @@ public:
 class UActorFactoryMover : public UActorFactoryDynamicSM
 {
 public:
-	uint8_t                                           UnknownData00[0x7];                            // 0x00B9 (0x0007) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -8902,7 +8892,6 @@ public:
 class UActorFactoryLight : public UActorFactory
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x009C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -8924,7 +8913,6 @@ public:
 class UActorFactoryPathNode : public UActorFactory
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x009C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -8976,7 +8964,6 @@ public:
 class UActorFactoryPlayerStart : public UActorFactory
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x009C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -8998,7 +8985,6 @@ public:
 class UActorFactoryPylon : public UActorFactory
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x009C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -9067,7 +9053,6 @@ public:
 class UActorFactoryTrigger : public UActorFactory
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x009C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -9366,7 +9351,7 @@ public:
 class UChannel : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x40];                           // 0x0060 (0x0040) FINAL PADDING
+	uint8_t                                           UnknownData00[0x40];                           // 0x0060 (0x0040) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -9388,7 +9373,7 @@ public:
 class UActorChannel : public UChannel
 {
 public:
-	uint8_t                                           UnknownData00[0x80];                           // 0x00A0 (0x0080) FINAL PADDING
+	uint8_t                                           UnknownData00[0x80];                           // 0x00A0 (0x0080) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -9410,7 +9395,7 @@ public:
 class UControlChannel : public UChannel
 {
 public:
-	uint8_t                                           UnknownData00[0x18];                           // 0x00A0 (0x0018) FINAL PADDING
+	uint8_t                                           UnknownData00[0x18];                           // 0x00A0 (0x0018) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -9432,7 +9417,7 @@ public:
 class UFileChannel : public UChannel
 {
 public:
-	uint8_t                                           UnknownData00[0x228];                          // 0x00A0 (0x0228) FINAL PADDING
+	uint8_t                                           UnknownData00[0x228];                          // 0x00A0 (0x0228) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -9454,7 +9439,7 @@ public:
 class UVoiceChannel : public UChannel
 {
 public:
-	uint8_t                                           UnknownData00[0x10];                           // 0x00A0 (0x0010) FINAL PADDING
+	uint8_t                                           UnknownData00[0x10];                           // 0x00A0 (0x0010) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -10388,7 +10373,6 @@ public:
 class UCodecMovieBink : public UCodecMovie
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0064 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -10876,7 +10860,7 @@ public:
 class UDownload : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0xA50];                          // 0x0060 (0x0A50) FINAL PADDING
+	uint8_t                                           UnknownData00[0xA50];                          // 0x0060 (0x0A50) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -10898,7 +10882,7 @@ public:
 class UChannelDownload : public UDownload
 {
 public:
-	uint8_t                                           UnknownData00[0x8];                            // 0x0AB0 (0x0008) FINAL PADDING
+	uint8_t                                           UnknownData00[0x8];                            // 0x0AB0 (0x0008) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -11515,7 +11499,7 @@ public:
 class UGuidCache : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x60];                           // 0x0060 (0x0060) FINAL PADDING
+	uint8_t                                           UnknownData00[0x60];                           // 0x0060 (0x0060) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -11835,7 +11819,7 @@ public:
 class ULevelBase : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x78];                           // 0x0060 (0x0078) FINAL PADDING
+	uint8_t                                           UnknownData00[0x78];                           // 0x0060 (0x0078) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -11860,7 +11844,7 @@ public:
 	uint8_t                                           UnknownData00[0x120];                          // 0x00D8 (0x0120) MISSED OFFSET
 	float                                              LightmapTotalSize;                             // 0x01F8 (0x0004) [0x0000000000020002] (CPF_Const | CPF_EditConst)
 	float                                              ShadowmapTotalSize;                            // 0x01FC (0x0004) [0x0000000000020002] (CPF_Const | CPF_EditConst)
-	uint8_t                                           UnknownData01[0x300];                          // 0x0200 (0x0300) FINAL PADDING
+	uint8_t                                           UnknownData01[0x300];                          // 0x0200 (0x0300) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -11882,7 +11866,7 @@ public:
 class UPendingLevel : public ULevelBase
 {
 public:
-	uint8_t                                           UnknownData00[0x50];                           // 0x00D8 (0x0050) FINAL PADDING
+	uint8_t                                           UnknownData00[0x50];                           // 0x00D8 (0x0050) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -12036,7 +12020,6 @@ public:
 class ULevelStreamingKismet : public ULevelStreaming
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0114 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -12058,7 +12041,6 @@ public:
 class ULevelStreamingPersistent : public ULevelStreaming
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0114 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -12197,11 +12179,11 @@ public:
 };
 
 // Class Engine.Model
-// 0x0D30 (0x0060 - 0x0D90)
+// 0x0D50 (0x0060 - 0x0DB0)
 class UModel : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0xD30];                          // 0x0060 (0x0D30) FINAL PADDING
+	uint8_t                                           UnknownData00[0xD50];                          // 0x0060 (0x0D50) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -12244,7 +12226,7 @@ public:
 class UNavigationMeshBase : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x340];                          // 0x0060 (0x0340) FINAL PADDING
+	uint8_t                                           UnknownData00[0x340];                          // 0x0060 (0x0340) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -12262,7 +12244,7 @@ public:
 };
 
 // Class Engine.NetDriver
-// 0x01F0 (0x0068 - 0x0258)
+// 0x0230 (0x0068 - 0x0298)
 class UNetDriver : public USubsystem
 {
 public:
@@ -12290,7 +12272,7 @@ public:
 	TArray<class FString>                              DownloadManagers;                              // 0x0158 (0x0010) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
 	uint8_t                                           UnknownData03[0xA8];                           // 0x0168 (0x00A8) MISSED OFFSET
 	class FString                                      NetConnectionClassName;                        // 0x0210 (0x0010) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
-	uint8_t                                           UnknownData04[0x38];                           // 0x0220 (0x0038) FINAL PADDING
+	uint8_t                                           UnknownData04[0x78];                           // 0x0220 (0x0078) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -12308,17 +12290,17 @@ public:
 };
 
 // Class Engine.DemoRecDriver
-// 0x00F8 (0x0258 - 0x0350)
+// 0x00F8 (0x0298 - 0x0390)
 class UDemoRecDriver : public UNetDriver
 {
 public:
-	uint8_t                                           UnknownData00[0x30];                           // 0x0258 (0x0030) MISSED OFFSET
-	class FString                                      DemoSpectatorClass;                            // 0x0288 (0x0010) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
-	uint8_t                                           UnknownData01[0xA0];                           // 0x0298 (0x00A0) MISSED OFFSET
-	int32_t                                            MaxRewindPoints;                               // 0x0338 (0x0004) [0x0000000000004000] (CPF_Config)  
-	float                                              RewindPointInterval;                           // 0x0340 (0x0004) [0x0000000000004000] (CPF_Config)  
-	int32_t                                            NumRecentRewindPoints;                         // 0x0344 (0x0004) [0x0000000000004000] (CPF_Config)  
-	uint8_t                                           UnknownData02[0x8];                            // 0x0348 (0x0008) FINAL PADDING
+	uint8_t                                           UnknownData00[0x30];                           // 0x0298 (0x0030) MISSED OFFSET
+	class FString                                      DemoSpectatorClass;                            // 0x02C8 (0x0010) [0x0000000000404000] (CPF_Config | CPF_NeedCtorLink)
+	uint8_t                                           UnknownData01[0xA0];                           // 0x02D8 (0x00A0) MISSED OFFSET
+	int32_t                                            MaxRewindPoints;                               // 0x0378 (0x0004) [0x0000000000004000] (CPF_Config)  
+	float                                              RewindPointInterval;                           // 0x0380 (0x0004) [0x0000000000004000] (CPF_Config)  
+	int32_t                                            NumRecentRewindPoints;                         // 0x0384 (0x0004) [0x0000000000004000] (CPF_Config)  
+	uint8_t                                           UnknownData02[0x8];                            // 0x0388 (0x0008) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -13051,7 +13033,7 @@ public:
 class UPackageMapLevel : public UPackageMap
 {
 public:
-	uint8_t                                           UnknownData00[0x8];                            // 0x0118 (0x0008) FINAL PADDING
+	uint8_t                                           UnknownData00[0x8];                            // 0x0118 (0x0008) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -13094,7 +13076,7 @@ public:
 class UPatchScriptCommandlet : public UCommandlet
 {
 public:
-	uint8_t                                           UnknownData00[0xC];                            // 0x00B4 (0x000C) FINAL PADDING
+	uint8_t                                           UnknownData00[0xC];                            // 0x00B4 (0x000C) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -13523,7 +13505,7 @@ public:
 class UPolys : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x18];                           // 0x0060 (0x0018) FINAL PADDING
+	uint8_t                                           UnknownData00[0x18];                           // 0x0060 (0x0018) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -13797,7 +13779,6 @@ public:
 class UDwTriovizImplEffect : public UPostProcessEffect
 {
 public:
-	uint8_t                                           UnknownData00[0x3];                            // 0x0085 (0x0003) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -13940,7 +13921,6 @@ public:
 class UProcessReplayCommandlet : public UCommandlet
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00B4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -14344,7 +14324,7 @@ public:
 };
 
 // Class Engine.GameViewportClient
-// 0x01E0 (0x0068 - 0x0248)
+// 0x01F8 (0x0068 - 0x0260)
 class UGameViewportClient : public UScriptViewportClient
 {
 public:
@@ -14385,11 +14365,12 @@ public:
 	struct FScriptDelegate                             __HandleInputKey__Delegate;                    // 0x0188 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 	struct FScriptDelegate                             __HandleInputAxis__Delegate;                   // 0x01A0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 	struct FScriptDelegate                             __HandleInputChar__Delegate;                   // 0x01B8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventScaleformEnabledChanged__Delegate;      // 0x01D0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventGamepadInputAPIChanged__Delegate;       // 0x01E8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventGamepadConnectionStatusChanged__Delegate;// 0x0200 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventGampadConnected__Delegate;              // 0x0218 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
-	struct FScriptDelegate                             __EventGampadDisconnected__Delegate;           // 0x0230 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventScreenDraggedOnNewScreen__Delegate;     // 0x01D0 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventScaleformEnabledChanged__Delegate;      // 0x01E8 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventGamepadInputAPIChanged__Delegate;       // 0x0200 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventGamepadConnectionStatusChanged__Delegate;// 0x0218 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventGampadConnected__Delegate;              // 0x0230 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
+	struct FScriptDelegate                             __EventGampadDisconnected__Delegate;           // 0x0248 (0x0018) [0x0000000000400000] (CPF_NeedCtorLink)
 
 public:
 	static UClass* StaticClass()
@@ -14465,6 +14446,7 @@ public:
 	void EventGamepadConnectionStatusChanged(class UGameViewportClient* GVC, int32_t ControllerId, bool bConnected);
 	void EventGamepadInputAPIChanged(class UGameViewportClient* GVC, int32_t ControllerId, EInputAPI InputAPI);
 	void EventScaleformEnabledChanged(class UGameViewportClient* GVC);
+	void EventScreenDraggedOnNewScreen(int32_t NewWidth, int32_t NewHeight);
 	bool HandleInputChar(int32_t ControllerId, class FString Unicode);
 	bool HandleInputAxis(int32_t ControllerId, struct FName Key, float delta, float DeltaTime, bool bGamepad);
 	bool HandleInputKey(int32_t ControllerId, struct FName Key, EInputEvent EventType, float AmountDepressed, bool optionalBGamepad);
@@ -14475,7 +14457,7 @@ public:
 class USelection : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x30];                           // 0x0060 (0x0030) FINAL PADDING
+	uint8_t                                           UnknownData00[0x30];                           // 0x0060 (0x0030) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -14497,7 +14479,6 @@ public:
 class UServerCommandlet : public UCommandlet
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00B4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -14683,7 +14664,7 @@ public:
 class UShaderCache : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x78];                           // 0x0060 (0x0078) FINAL PADDING
+	uint8_t                                           UnknownData00[0x78];                           // 0x0060 (0x0078) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -14701,11 +14682,11 @@ public:
 };
 
 // Class Engine.ShadowMap1D
-// 0x0058 (0x0060 - 0x00B8)
+// 0x0068 (0x0060 - 0x00C8)
 class UShadowMap1D : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x58];                           // 0x0060 (0x0058) FINAL PADDING
+	uint8_t                                           UnknownData00[0x68];                           // 0x0060 (0x0068) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -14755,7 +14736,6 @@ public:
 class USmokeTestCommandlet : public UCommandlet
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00B4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -14830,7 +14810,7 @@ public:
 	uint32_t                                           bStripComplexCollisionForConsole : 1;          // 0x0168 (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	uint32_t                                           bPerLODStaticLightingForInstancing : 1;        // 0x016C (0x0004) [0x0000000000000001] [0x00000001] (CPF_Edit)
 	float                                              StreamingDistanceMultiplier;                   // 0x0170 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	uint8_t                                           UnknownData04[0x8C];                           // 0x0174 (0x008C) FINAL PADDING
+	uint8_t                                           UnknownData04[0x8C];                           // 0x0174 (0x008C) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -15015,6 +14995,7 @@ public:
 		return uClassPointer;
 	};
 
+	void WaitForMipLevelsToStream(float MaxWaitSeconds);
 	class UMaterialInstance* GetOrCreateInstance();
 	void SetForceMipLevelsToBeResident(bool OverrideForceMiplevelsToBeResident, bool bForceMiplevelsToBeResidentValue, float ForceDuration, int32_t optionalCinematicTextureGroups);
 	bool GetMobileVectorParameterValue(struct FName ParameterName, struct FLinearColor& OutValue);
@@ -15105,7 +15086,7 @@ public:
 	class UMaterialInterface*                          DynamicOutsideMaterial;                        // 0x02A8 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	class UMaterialInterface*                          LoseChunkOutsideMaterial;                      // 0x02B0 (0x0008) [0x0000000000000001] (CPF_Edit)    
 	int32_t                                            OutsideMaterialIndex;                          // 0x02B8 (0x0004) [0x0000000000000001] (CPF_Edit)    
-	uint8_t                                           UnknownData01[0x34];                           // 0x02BC (0x0034) FINAL PADDING
+	uint8_t                                           UnknownData01[0x34];                           // 0x02BC (0x0034) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -15318,7 +15299,7 @@ public:
 class ULightMapTexture2D : public UTexture2D
 {
 public:
-	uint8_t                                           UnknownData00[0x8];                            // 0x0280 (0x0008) FINAL PADDING
+	uint8_t                                           UnknownData00[0x8];                            // 0x0280 (0x0008) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -15386,7 +15367,6 @@ public:
 class UFrameTick : public UTickEventBase
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -15408,7 +15388,6 @@ public:
 class UGameTick : public UTickEventBase
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -15667,11 +15646,11 @@ public:
 };
 
 // Class Engine.World
-// 0x0360 (0x0060 - 0x03C0)
+// 0x0358 (0x0060 - 0x03B8)
 class UWorld : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x360];                          // 0x0060 (0x0360) FINAL PADDING
+	uint8_t                                           UnknownData00[0x358];                          // 0x0060 (0x0358) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -17280,7 +17259,6 @@ public:
 class ASkeletalMeshActorSpawnable : public ASkeletalMeshActor
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02CC (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -17302,7 +17280,6 @@ public:
 class ASkeletalMeshCinematicActor : public ASkeletalMeshActor
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02CC (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -17447,7 +17424,6 @@ public:
 class UAnimationCompressionAlgorithm_BitwiseCompressOnly : public UAnimationCompressionAlgorithm
 {
 public:
-	uint8_t                                           UnknownData00[0x2];                            // 0x0076 (0x0002) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -17469,7 +17445,6 @@ public:
 class UAnimationCompressionAlgorithm_LeastDestructive : public UAnimationCompressionAlgorithm
 {
 public:
-	uint8_t                                           UnknownData00[0x2];                            // 0x0076 (0x0002) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -17606,7 +17581,6 @@ public:
 class UAnimationCompressionAlgorithm_RevertToRaw : public UAnimationCompressionAlgorithm
 {
 public:
-	uint8_t                                           UnknownData00[0x2];                            // 0x0076 (0x0002) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -17937,7 +17911,6 @@ public:
 class UAnimNotify_Scripted : public UAnimNotify
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0064 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -18469,7 +18442,6 @@ public:
 class UAnimNodeBlendByPhysics : public UAnimNodeBlendList
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x016C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -18491,7 +18463,6 @@ public:
 class UAnimNodeBlendByPosture : public UAnimNodeBlendList
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x016C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -20154,7 +20125,6 @@ public:
 class AFogVolumeConeDensityInfo : public AFogVolumeDensityInfo
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x027C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -20176,7 +20146,6 @@ public:
 class AFogVolumeConstantDensityInfo : public AFogVolumeDensityInfo
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x027C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -20198,7 +20167,6 @@ public:
 class AFogVolumeLinearHalfspaceDensityInfo : public AFogVolumeDensityInfo
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x027C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -20220,7 +20188,6 @@ public:
 class AFogVolumeSphericalDensityInfo : public AFogVolumeDensityInfo
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x027C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -20428,7 +20395,6 @@ public:
 class UActorFactoryFogVolumeLinearHalfspaceDensityInfo : public UActorFactoryFogVolumeConstantDensityInfo
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00AC (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -20450,7 +20416,6 @@ public:
 class UActorFactoryFogVolumeSphericalDensityInfo : public UActorFactoryFogVolumeConstantDensityInfo
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00AC (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -21328,7 +21293,6 @@ public:
 class UInterpGroupDirector : public UInterpGroup
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x009C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -21770,7 +21734,6 @@ public:
 class UInterpTrackSlomo : public UInterpTrackFloatBase
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00E4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -22004,7 +21967,6 @@ public:
 class UInterpTrackAudioMaster : public UInterpTrackVectorBase
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00E4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -22048,7 +22010,6 @@ public:
 class UInterpTrackColorScale : public UInterpTrackVectorBase
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00E4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -26204,7 +26165,6 @@ public:
 class UDistributionFloatParticleParameter : public UDistributionFloatParameterBase
 {
 public:
-	uint8_t                                           UnknownData00[0x7];                            // 0x00A1 (0x0007) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -26226,7 +26186,6 @@ public:
 class UDistributionVectorParticleParameter : public UDistributionVectorParameterBase
 {
 public:
-	uint8_t                                           UnknownData00[0x5];                            // 0x00D3 (0x0005) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -26466,7 +26425,6 @@ public:
 class UParticleModuleAttractorBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -26646,7 +26604,6 @@ public:
 class UParticleModuleBeamBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -26802,7 +26759,6 @@ public:
 class UParticleModuleCameraBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -26848,7 +26804,6 @@ public:
 class UParticleModuleCollisionBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -26939,7 +26894,6 @@ public:
 class UParticleModuleColorBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -27101,7 +27055,6 @@ public:
 class UParticleModuleEventBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -27216,7 +27169,6 @@ public:
 class UParticleModuleKillBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -27289,7 +27241,6 @@ public:
 class UParticleModuleLifetimeBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -27355,7 +27306,6 @@ public:
 class UParticleModuleLocationBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -27781,7 +27731,6 @@ public:
 class UParticleModuleMaterialBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -27898,7 +27847,6 @@ public:
 class UParticleModuleOrientationBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -27942,7 +27890,6 @@ public:
 class UParticleModuleParameterBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -28076,7 +28023,6 @@ public:
 class UParticleModuleRotationBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -28210,7 +28156,6 @@ public:
 class UParticleModuleRotationRateBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -28387,7 +28332,6 @@ public:
 class UParticleModuleSizeBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -28655,7 +28599,6 @@ public:
 class UParticleModuleStoreSpawnTimeBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -28698,7 +28641,6 @@ public:
 class UParticleModuleSubUVBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -28812,7 +28754,6 @@ public:
 class UParticleModuleTrailBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -28909,7 +28850,6 @@ public:
 class UParticleModuleTypeDataBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -29654,7 +29594,6 @@ public:
 class UParticleModuleWorldForcesBase : public UParticleModule
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x006C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -30688,7 +30627,6 @@ public:
 class URB_BSJointSetup : public URB_ConstraintSetup
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0124 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -30710,7 +30648,6 @@ public:
 class URB_DistanceJointSetup : public URB_ConstraintSetup
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0124 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -30732,7 +30669,6 @@ public:
 class URB_HingeSetup : public URB_ConstraintSetup
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0124 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -30754,7 +30690,6 @@ public:
 class URB_PrismaticSetup : public URB_ConstraintSetup
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0124 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -30776,7 +30711,6 @@ public:
 class URB_PulleyJointSetup : public URB_ConstraintSetup
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0124 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -30798,7 +30732,6 @@ public:
 class URB_SkelJointSetup : public URB_ConstraintSetup
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0124 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -30820,7 +30753,6 @@ public:
 class URB_StayUprightSetup : public URB_ConstraintSetup
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0124 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -32000,7 +31932,6 @@ public:
 class UPrefabSequenceContainer : public USequence
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x01CC (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -34759,7 +34690,6 @@ public:
 class USeqEvent_ConstraintBroken : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -34781,7 +34711,6 @@ public:
 class USeqEvent_Destroyed : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -34827,7 +34756,6 @@ public:
 class USeqEvent_LevelBeginning : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -34849,7 +34777,6 @@ public:
 class USeqEvent_LevelLoaded : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -34872,7 +34799,6 @@ public:
 class USeqEvent_LevelStartup : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -34996,7 +34922,6 @@ public:
 class USeqEvent_SeeDeath : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -35652,7 +35577,6 @@ public:
 class AAmbientSoundNonLoopingToggleable : public AAmbientSoundSimpleToggleable
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02AC (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -35742,7 +35666,6 @@ public:
 class UDistributionFloatSoundParameter : public UDistributionFloatParameterBase
 {
 public:
-	uint8_t                                           UnknownData00[0x7];                            // 0x00A1 (0x0007) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -37417,7 +37340,6 @@ public:
 class UUIDataProvider_OnlineProfileSettings : public UUIDataProvider_OnlinePlayerStorage
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00A4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -38282,7 +38204,6 @@ public:
 class UActorFactoryInteractiveFoliage : public UActorFactoryStaticMesh
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x00B4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -39698,7 +39619,6 @@ public:
 class ADirectionalLight : public ALight
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0274 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -39783,7 +39703,6 @@ public:
 class APointLight : public ALight
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0274 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -39871,7 +39790,6 @@ public:
 class ASkyLight : public ALight
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0274 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -39914,7 +39832,6 @@ public:
 class ASpotLight : public ALight
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0274 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -40214,7 +40131,6 @@ public:
 class UDominantPointLightComponent : public UPointLightComponent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0264 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -40472,7 +40388,6 @@ public:
 class UDrawLightRadiusComponent : public UDrawSphereComponent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0274 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -41139,7 +41054,6 @@ public:
 class ASplineLoftActorMovable : public ASplineLoftActor
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0334 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -41535,7 +41449,6 @@ public:
 class UPBRuleNodeOcclusion : public UPBRuleNodeBase
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0094 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -42693,7 +42606,7 @@ public:
 class UNetDriverSecurity : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0x10];                           // 0x0060 (0x0010) FINAL PADDING
+	uint8_t                                           UnknownData00[0x10];                           // 0x0060 (0x0010) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -42715,7 +42628,7 @@ public:
 class UNetConnectionEncryptor : public UObject
 {
 public:
-	uint8_t                                           UnknownData00[0xA8];                           // 0x0060 (0x00A8) FINAL PADDING
+	uint8_t                                           UnknownData00[0xA8];                           // 0x0060 (0x00A8) MISSED OFFSET
 
 public:
 	static UClass* StaticClass()
@@ -42783,7 +42696,6 @@ public:
 class USeqEvent_HitWall : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -42932,7 +42844,6 @@ public:
 class USeqEvent_MobileTouch : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -43104,7 +43015,6 @@ public:
 class AAmbientSoundSimpleSplineNonLoop : public AAmbientSoundSimpleSpline
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02A4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -43544,9 +43454,7 @@ public:
 	void RemoveCanPlayOnlineChangedDelegate(struct FScriptDelegate Callback);
 	void AddCanPlayOnlineChangedDelegate(struct FScriptDelegate Callback);
 	class FString GetPlayerLanguage(uint8_t LocalUserNum);
-	void GetPlayerCountry(uint8_t LocalUserNum);
-	void ClearReadPlayerCountryDelegate(uint8_t LocalUserNum, struct FScriptDelegate ReadPlayerCountryDelegate);
-	void AddReadPlayerCountryDelegate(uint8_t LocalUserNum, struct FScriptDelegate ReadPlayerCountryDelegate);
+	class FString GetPlayerCountry(uint8_t LocalUserNum);
 	EOnlineEnumerationReadState GetAchievements(uint8_t LocalUserNum, int32_t optionalTitleId, TArray<struct FAchievementDetails>& Achievements);
 	void ClearReadAchievementsCompleteDelegate(uint8_t LocalUserNum, struct FScriptDelegate ReadAchievementsCompleteDelegate);
 	void AddReadAchievementsCompleteDelegate(uint8_t LocalUserNum, struct FScriptDelegate ReadAchievementsCompleteDelegate);
@@ -43700,7 +43608,6 @@ public:
 	bool ShowLoginUIForOrphanedUser(uint8_t LocalUserNum);
 	bool ShowLoginUI(uint8_t LocalUserNum, bool optionalBShowOnlineOnly);
 	void CanPlayOnlineChanged(uint8_t LocalUserNum);
-	void OnPlayerCountryRetrieved(struct FUniqueNetId PlayerID, class FString Country);
 	void FriendPresenceChange(struct FUniqueNetId PlayerID);
 	void OnAvatarChange(struct FUniqueNetId PlayerID);
 	void AddFriendInviteAcceptedDelegate(uint8_t LocalUserNum, struct FScriptDelegate InviteAccepted);
@@ -44351,6 +44258,9 @@ public:
 		return uClassPointer;
 	};
 
+	void ClearCaptureAvailabilityChangeDelegate(struct FScriptDelegate CaptureAvailabilityDelegate);
+	void AddCaptureAvailabilityChangeDelegate(struct FScriptDelegate CaptureAvailabilityDelegate);
+	void OnCaptureAvailabilityChange(bool bCaptureAllowed);
 	void ClearPlayerSigningOutDelegate(struct FScriptDelegate InDelegate);
 	void AddPlayerSigningOutDelegate(struct FScriptDelegate InDelegate);
 	void OnPlayerSigningOut(uint8_t LocalUserNum);
@@ -45061,7 +44971,6 @@ public:
 class ANavMeshBoundsVolume : public AVolume
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x02A4 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -45271,7 +45180,6 @@ public:
 class USeqEvent_AIReachedRouteActor : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -45720,7 +45628,6 @@ public:
 class USeqEvent_Death : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -45767,7 +45674,6 @@ public:
 class USeqEvent_PickupStatusChange : public USequenceEvent
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x017C (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()
@@ -45915,7 +45821,6 @@ public:
 class AStaticLensFlareSource : public ALensFlareSource
 {
 public:
-	uint8_t                                           UnknownData00[0x4];                            // 0x0274 (0x0004) FINAL PADDING
 
 public:
 	static UClass* StaticClass()

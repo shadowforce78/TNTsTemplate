@@ -1,12 +1,12 @@
 /*
 #############################################################################################
-# RocketLeague (1.0.10897.0) SDK
-# Generated with the CodeRedGenerator v1.0.2
+# RocketLeague (6.9.6.9) SDK
+# Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: GFxUI_classes.cpp
 # ========================================================================================= #
-# Credits: TheFeckless, ItsBranK
-# Links: www.github.com/CodeRedModding/CodeRed-Generator, www.twitter.com/ItsBranK
+# Credits: TheFeckless, ItsBranK, rfs_what
+# Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
 #include "../SdkHeaders.hpp"
@@ -1901,6 +1901,31 @@ class UGameViewportClient* UGFxMoviePlayer::GetGameViewportClient()
 	uFnGetGameViewportClient->FunctionFlags |= 0x400;
 
 	return GetGameViewportClient_Params.ReturnValue;
+};
+
+// Function GFxUI.GFxMoviePlayer.RequestGarbageCollection
+// [0x00024401] (FUNC_Final | FUNC_Native | FUNC_NoExport | FUNC_OptionalParm | FUNC_Public | FUNC_AllFlags)
+// Parameter Info:
+// EGFxCollectionMode             Mode                           (CPF_OptionalParm | CPF_Parm)
+// bool                           bImmediate                     (CPF_OptionalParm | CPF_Parm)
+
+void UGFxMoviePlayer::RequestGarbageCollection(EGFxCollectionMode Mode, bool bImmediate)
+{
+	static UFunction* uFnRequestGarbageCollection = nullptr;
+
+	if (!uFnRequestGarbageCollection)
+	{
+		uFnRequestGarbageCollection = UFunction::FindFunction("Function GFxUI.GFxMoviePlayer.RequestGarbageCollection");
+	}
+
+	UGFxMoviePlayer_execRequestGarbageCollection_Params RequestGarbageCollection_Params;
+	memset(&RequestGarbageCollection_Params, 0, sizeof(RequestGarbageCollection_Params));
+	memcpy_s(&RequestGarbageCollection_Params.Mode, sizeof(RequestGarbageCollection_Params.Mode), &Mode, sizeof(Mode));
+	RequestGarbageCollection_Params.bImmediate = bImmediate;
+
+	uFnRequestGarbageCollection->FunctionFlags &= ~0x400;
+	this->ProcessEvent(uFnRequestGarbageCollection, &RequestGarbageCollection_Params, nullptr);
+	uFnRequestGarbageCollection->FunctionFlags |= 0x400;
 };
 
 // Function GFxUI.GFxMoviePlayer.SetPriority
