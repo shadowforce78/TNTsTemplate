@@ -11,6 +11,7 @@
 */
 #pragma once
 #include "../GameDefines.hpp"
+#include "Engine_classes.hpp"
 
 
 #ifdef _MSC_VER
@@ -2119,11 +2120,28 @@ public:
 	};
 };
 
+// Class Core.ScriptGroup_ORS
+// 0x0008 (0x0060 - 0x0068)
+class UScriptGroup_ORS : public UObject
+{
+public:
+	uint8_t UnknownData00[0x8]; // 0x0060 (0x0008) MISSED OFFSET
+
+public:
+	static UClass *StaticClass()
+	{
+		static UClass *uClassPointer = nullptr;
+		if (!uClassPointer)
+		{
+			uClassPointer = UObject::FindClass("Class Core.ScriptGroup_ORS");
+		}
+		return uClassPointer;
+	};
+};
+
 // Class Core.Group_ORS
-class UScriptGroup_ORS;
 // 0x00D0 (0x0068 - 0x0138)
 class UGroup_ORS : public UScriptGroup_ORS
-#include "Engine_classes.hpp"
 {
 public:
 	uint8_t UnknownData00[0xD0]; // 0x0068 (0x00D0) MISSED OFFSET
