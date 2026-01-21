@@ -1,6 +1,7 @@
 #pragma once
 #include "../pch.hpp"
 #include "Math.hpp"
+#include "../../RLSDK/GameDefines.hpp"
 
 // Helper functions for formatting streams and strings.
 namespace Format

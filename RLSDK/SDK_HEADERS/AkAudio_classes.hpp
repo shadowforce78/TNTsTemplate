@@ -9,6 +9,8 @@
 # Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
+
+#include "../GameDefines.hpp"
 #pragma once
 
 #ifdef _MSC_VER
