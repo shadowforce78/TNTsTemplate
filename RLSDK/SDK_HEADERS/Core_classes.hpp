@@ -11,7 +11,7 @@
 */
 #pragma once
 #include "../GameDefines.hpp"
-#include "Engine_classes.hpp"
+
 
 #ifdef _MSC_VER
 #pragma pack(push, 0x8)
@@ -2123,6 +2123,7 @@ public:
 class UScriptGroup_ORS;
 // 0x00D0 (0x0068 - 0x0138)
 class UGroup_ORS : public UScriptGroup_ORS
+#include "Engine_classes.hpp"
 {
 public:
 	uint8_t UnknownData00[0xD0]; // 0x0068 (0x00D0) MISSED OFFSET
