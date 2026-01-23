@@ -89,103 +89,34 @@ void ExampleModule::PlayerTickCalled(const PostEvent& event) {
         FVector screenPos = Drawing::CalculateScreenCoordinate(boostCircleLocation, localPlayerController);
 
 
-        ACarComponent_Boost_TA* boostComponent = car->BoostComponent;
-        float boostAmount = 0.0f;
-        try {
-            if (boostComponent) {
-                boostAmount = boostComponent->CurrentBoostAmount * 100;
-                Console.Write("Boost amount read: " + std::to_string(boostAmount));
-            }
-            else {
-                Console.Write("BoostComponent was nullptr");
+        ACarComponent_Boost_TA* boostComponent = nullptr;
+        
+        // Debugging: List everything attached
+        /*
+        Console.Write("Car Attached Count: " + std::to_string(car->Attached.Count));
+        for (int i = 0; i < car->Attached.Count; i++) {
+            AActor* actor = car->Attached[i];
+            if (actor) {
+                Console.Write("  Attached[" + std::to_string(i) + "]: " + actor->GetFullName());
+                if (actor->IsA(ACarComponent_Boost_TA::StaticClass())) {
+                     Console.Write("    -> MATCHES Boost Class!");
+                     boostComponent = static_cast<ACarComponent_Boost_TA*>(actor);
+                }
             }
         }
-        catch (...) {
-            boostAmount = 0.0f;
-            Console.Write("BoostComponent was nullptr or sum");
-        }
+        */
 
-        CarBoostData data;
-        data.screenPosition = screenPos;
-        data.boostAmount = boostAmount;
-        Console.Write("Stored boost amount: " + std::to_string(data.boostAmount));
-        carBoostData.push_back(data);
-    }
+        // Explicit search with logging enabled for the user
+    if (!Canvas) return;
 
-    // get all balls and save in list
-    for (ABall_TA* ball : balls) {
-        if (!ball) continue;
-        FVector ballLocation = ball->Location;
-        FVector screenPos = Drawing::CalculateScreenCoordinate(ballLocation, localPlayerController);
-        ballScreenPositions.push_back(screenPos);
-    }
-}
+    // Project is clean.
+    // Logic removed as requested.
 
-void ExampleModule::OnRender() {
     if (!IsInGame) {
         return;
     }
-
-    ImDrawList* drawList = ImGui::GetBackgroundDrawList();
-
-    // Draw Boost Circles
-    for (const CarBoostData& data : carBoostData) {
-        if (data.screenPosition.Z == 0) {
-            float boostPercentage = data.boostAmount / 100.0f;
-            if (boostPercentage < 0.0f) boostPercentage = 0.0f;
-            if (boostPercentage > 1.0f) boostPercentage = 1.0f;
-
-            ImVec2 center(data.screenPosition.X, data.screenPosition.Y);
-            float radius = 25.0f; 
-
-            drawList->AddCircleFilled(center, radius, IM_COL32(50, 50, 50, 180));
-
-            if (boostPercentage > 0.0f) {
-                float startAngle = -IM_PI * 0.5f;
-                float endAngle = startAngle + (2.0f * IM_PI * boostPercentage);
-
-                ImU32 boostColor;
-                if (boostPercentage < 0.33f) {
-                    boostColor = IM_COL32(255, 80, 80, 220);
-                }
-                else if (boostPercentage < 0.66f) {
-                    boostColor = IM_COL32(255, 200, 0, 220);
-                }
-                else {
-                    boostColor = IM_COL32(80, 255, 80, 220);
-                }
-
-                drawList->PathClear();
-                drawList->PathLineTo(center);
-
-                const int numSegments = 32;
-                for (int i = 0; i <= numSegments; i++) {
-                    float angle = startAngle + (endAngle - startAngle) * ((float)i / numSegments);
-                    float x = center.x + cosf(angle) * radius;
-                    float y = center.y + sinf(angle) * radius;
-                    drawList->PathLineTo(ImVec2(x, y));
-                }
-
-                drawList->PathLineTo(center);
-                drawList->PathFillConvex(boostColor);
-            }
-
-            drawList->AddCircle(center, radius, IM_COL32(255, 255, 255, 150), 32, 2.0f);
-
-            std::string boostText = std::to_string((int)data.boostAmount);
-            ImVec2 textSize = ImGui::CalcTextSize(boostText.c_str());
-            ImVec2 textPos(center.x - textSize.x * 0.5f, center.y - textSize.y * 0.5f);
-            drawList->AddText(textPos, IM_COL32(255, 255, 255, 255), boostText.c_str());
-        }
-    }
-
-    // ball circles
-    for (const FVector& screenPos : ballScreenPositions) {
-        if (screenPos.Z == 0) {
-            drawList->AddCircleFilled(ImVec2(screenPos.X, screenPos.Y), 8.f, IM_COL32(0, 255, 0, 255));
-        }
-    }
-}
+    
+    // Clean render loop.
 
 ExampleModule::ExampleModule() : Module("GameEventHook", "Hooks into game events", States::STATES_All) {
     OnCreate();
