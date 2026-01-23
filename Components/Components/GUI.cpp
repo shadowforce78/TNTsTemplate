@@ -225,9 +225,7 @@ void GUIComponent::Render()
 	GUI.DisplayX = IO.DisplaySize.x;
 	GUI.DisplayY = IO.DisplaySize.y;
 
-	if (Example.IsInGame) {
-		Example.OnRender();
-	}
+	Example.OnRender();
 
 	IO.MouseDrawCursor = IsOpen;
 	ImGui::SetNextWindowSize(ImVec2(840, 450));

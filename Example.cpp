@@ -77,46 +77,74 @@ void ExampleModule::PlayerTickCalled(const PostEvent& event) {
         //FVehicleInputs currentInputs = localPlayer->VehicleInput; //might not work
     }
 
-    // get all cars with boost data
-    for (ACar_TA* car : cars) {
-        if (!car) continue;
+    // Clean up lists
+    carBoostData.clear();
+    ballScreenPositions.clear();
+}
 
-        FVector carLocation = car->Location;
+void ExampleModule::OnRender() {
+    // Show on ALL screens (Menu, Loading, Game) - check removed.
 
-        FVector boostCircleLocation = carLocation;
-        boostCircleLocation.Z += 100.0f; 
+    // --- SushiSDK Badge Implementation ---
+    ImDrawList* drawList = ImGui::GetBackgroundDrawList();
+    ImGuiIO& io = ImGui::GetIO();
+    float time = (float)ImGui::GetTime();
 
-        FVector screenPos = Drawing::CalculateScreenCoordinate(boostCircleLocation, localPlayerController);
+    // Configuration
+    const char* text = "SushiSDK";
+    float paddingX = 15.0f;
+    float paddingY = 8.0f;
+    float cornerRadius = 8.0f;
+    float topMargin = 20.0f;
+    float leftMargin = 20.0f; // Moved to Left
 
+    // Pulse effect (0.0 to 1.0) for breathing
+    float pulse = (sinf(time * 3.0f) * 0.5f) + 0.5f; 
 
-        ACarComponent_Boost_TA* boostComponent = nullptr;
-        
-        // Debugging: List everything attached
-        /*
-        Console.Write("Car Attached Count: " + std::to_string(car->Attached.Count));
-        for (int i = 0; i < car->Attached.Count; i++) {
-            AActor* actor = car->Attached[i];
-            if (actor) {
-                Console.Write("  Attached[" + std::to_string(i) + "]: " + actor->GetFullName());
-                if (actor->IsA(ACarComponent_Boost_TA::StaticClass())) {
-                     Console.Write("    -> MATCHES Boost Class!");
-                     boostComponent = static_cast<ACarComponent_Boost_TA*>(actor);
-                }
-            }
-        }
-        */
-
-        // Explicit search with logging enabled for the user
-    if (!Canvas) return;
-
-    // Project is clean.
-    // Logic removed as requested.
-
-    if (!IsInGame) {
-        return;
-    }
+    // Calculate size & position
+    // Note: We use default font size. For larger text we'd need to scale or push font.
+    // Keeping it simple and clean with default size usually looks best unless high DPI issues occur.
+    ImVec2 textSize = ImGui::CalcTextSize(text);
+    ImVec2 boxSize = ImVec2(textSize.x + paddingX * 2, textSize.y + paddingY * 2);
     
-    // Clean render loop.
+    // Position: Top-Left
+    ImVec2 pos = ImVec2(leftMargin, topMargin);
+
+    // Colors
+    // Sexy Dark Background
+    ImU32 bgColor = IM_COL32(20, 20, 20, 180); 
+    // Sushi Salmon Pink Border (255, 114, 118)
+    // Pulsating Alpha for border
+    ImU32 borderColor = IM_COL32(255, 114, 118, 150 + (int)(pulse * 105)); 
+    
+    // Draw Glow (Outer Stroke Loop)
+    // Create a "luminous" effect by drawing expanding shells with decreasing alpha
+    int glowPasses = 6;
+    for (int i = 0; i < glowPasses; i++) {
+        float expand = (i + 1) * 1.5f;
+        float baseAlpha = 100.0f; // Max glow alpha
+        float glowAlpha = (baseAlpha * (1.0f - ((float)i / glowPasses))) * pulse; 
+        
+        drawList->AddRect(
+            ImVec2(pos.x - expand, pos.y - expand),
+            ImVec2(pos.x + boxSize.x + expand, pos.y + boxSize.y + expand),
+            IM_COL32(255, 114, 118, (int)glowAlpha),
+            cornerRadius + expand, 
+            0, 
+            1.0f // Thickness
+        );
+    }
+
+    // Draw Background
+    drawList->AddRectFilled(pos, ImVec2(pos.x + boxSize.x, pos.y + boxSize.y), bgColor, cornerRadius);
+    
+    // Draw Border
+    drawList->AddRect(pos, ImVec2(pos.x + boxSize.x, pos.y + boxSize.y), borderColor, cornerRadius, 0, 1.5f);
+
+    // Draw Text with slight shadow for pop
+    drawList->AddText(ImVec2(pos.x + paddingX + 1, pos.y + paddingY + 1), IM_COL32(0, 0, 0, 150), text);
+    drawList->AddText(ImVec2(pos.x + paddingX, pos.y + paddingY), IM_COL32(255, 230, 230, 255), text);
+}
 
 ExampleModule::ExampleModule() : Module("GameEventHook", "Hooks into game events", States::STATES_All) {
     OnCreate();
