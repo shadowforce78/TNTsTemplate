@@ -306,4 +306,3 @@ void ExampleModule::Initialize() {
 
 ExampleModule Example;
 
-
