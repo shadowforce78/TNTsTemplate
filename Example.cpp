@@ -14,10 +14,6 @@ AGameEvent_Soccar_TA* ExampleModule::CurrentGameEvent = nullptr;
 std::vector<CarBoostData> ExampleModule::carBoostData;
 std::vector<FVector> ExampleModule::ballScreenPositions;
 APRI_TA* ExampleModule::localPlayerPRI = nullptr;
-std::vector<ExampleModule::BallPath> ExampleModule::ballPaths;
-std::mutex ExampleModule::renderMutex;
-std::vector<CachedBallData> ExampleModule::cachedBalls;
-std::vector<CachedCarData> ExampleModule::cachedCars;
 
 void ExampleModule::Hook() {
     Events.HookEventPre("Function TAGame.GameEvent_Soccar_TA.PostBeginPlay", OnGameEventStart);
@@ -35,10 +31,6 @@ void ExampleModule::OnGameEventDestroyed(PreEvent& event)
         IsInGame = false;
         carBoostData.clear();
         ballScreenPositions.clear();
-        ballPaths.clear();
-        std::lock_guard<std::mutex> lock(renderMutex);
-        cachedBalls.clear();
-        cachedCars.clear();
     }
     catch (...) { Console.Error("GameEventHook: Exception in OnGameEventDestroyed"); }
 }
@@ -63,10 +55,8 @@ void ExampleModule::PlayerTickCalled(const PostEvent& event) {
         return;
     }
 
-    // Use local temp vectors and swap at the end to avoid locking the entire function
-    // carBoostData.clear();
-    // ballScreenPositions.clear();
-    // ballPaths.clear();
+    carBoostData.clear();
+    ballScreenPositions.clear();
 
     TArray<APlayerController_TA*> localPlayers = CurrentGameEvent->LocalPlayers;
     if (localPlayers.size() == 0 || !localPlayers[0]) {
@@ -88,197 +78,109 @@ void ExampleModule::PlayerTickCalled(const PostEvent& event) {
     }
 
     // get all cars with boost data
-    // Temp vectors for thread safety
-    std::vector<CachedCarData> tempCars;
-    std::vector<CachedBallData> tempBalls;
-    std::vector<CarBoostData> tempCarBoostData;
-    std::vector<BallPath> tempBallPaths;
-    std::vector<FVector> tempBallScreenPositions;
-
-    // get all cars with boost data
     for (ACar_TA* car : cars) {
         if (!car) continue;
 
         FVector carLocation = car->Location;
+
         FVector boostCircleLocation = carLocation;
         boostCircleLocation.Z += 100.0f; 
 
-        // Screen pos for overlay
         FVector screenPos = Drawing::CalculateScreenCoordinate(boostCircleLocation, localPlayerController);
+
 
         ACarComponent_Boost_TA* boostComponent = car->BoostComponent;
         float boostAmount = 0.0f;
-        if (boostComponent) {
-            boostAmount = boostComponent->CurrentBoostAmount; // * 100 for display?
+        try {
+            if (boostComponent) {
+                boostAmount = boostComponent->CurrentBoostAmount * 100;
+                Console.Write("Boost amount read: " + std::to_string(boostAmount));
+            }
+            else {
+                Console.Write("BoostComponent was nullptr");
+            }
+        }
+        catch (...) {
+            boostAmount = 0.0f;
+            Console.Write("BoostComponent was nullptr or sum");
         }
 
         CarBoostData data;
         data.screenPosition = screenPos;
         data.boostAmount = boostAmount;
-        tempCarBoostData.push_back(data);
-
-        // Cache for GUI
-        CachedCarData cacheData;
-        cacheData.Location = carLocation;
-        cacheData.Boost = boostAmount;
-        cacheData.Ptr = (void*)car;
-        
-        if (car->PRI && car->PRI->PlayerName.length() > 0) {
-             cacheData.Name = car->PRI->PlayerName.ToString();
-        } else {
-             cacheData.Name = "Car";
-        }
-        tempCars.push_back(cacheData);
+        Console.Write("Stored boost amount: " + std::to_string(data.boostAmount));
+        carBoostData.push_back(data);
     }
 
     // get all balls and save in list
-    if (balls.size() > 0) {
-        Console.Write("Found " + std::to_string(balls.size()) + " balls"); 
-    }
     for (ABall_TA* ball : balls) {
         if (!ball) continue;
-        if (ball->Location.X == 0.0f && ball->Location.Y == 0.0f && ball->Location.Z == 0.0f) continue;
-        
-        // Cache for GUI
-        CachedBallData cacheData;
-        cacheData.Location = ball->Location;
-        cacheData.Velocity = ball->Velocity;
-        cacheData.Radius = ball->Radius;
-        tempBalls.push_back(cacheData);
-
         FVector ballLocation = ball->Location;
         FVector screenPos = Drawing::CalculateScreenCoordinate(ballLocation, localPlayerController);
-        tempBallScreenPositions.push_back(screenPos);
-
-        // Manual Prediction
-        BallPath path;
-        path.willScore = false;
-        
-        // Initial State
-        // Use SDK Getters for better reliability
-        // Use direct access for debugging
-        FVector simLoc = ball->Location;
-        FVector simVel = ball->Velocity; 
-        
-        // Debug
-        // Console.Write("Ball Vel: " + std::to_string(simVel.Z));
-
-        // Physics Constants
-        
-        // Physics Constants
-        const float GRAVITY_Z = -650.0f;
-        const float DT = 0.1f;
-        const float BALL_RADIUS = 93.0f; // Approx ball radius
-        const float RESTITUTION = 0.6f; // Bounce dampening
-
-        // Add start point
-        path.points.push_back(Drawing::CalculateScreenCoordinate(simLoc, localPlayerController));
-
-        // Simulate 4 seconds
-        for (int i = 0; i < 40; i++) {
-            // Apply Gravity
-            simVel.Z += GRAVITY_Z * DT;
-
-            // Apply Velocity
-            simLoc.X += simVel.X * DT;
-            simLoc.Y += simVel.Y * DT;
-            simLoc.Z += simVel.Z * DT;
-
-            // Floor Bounce
-            if (simLoc.Z < BALL_RADIUS) {
-                simLoc.Z = BALL_RADIUS;
-                simVel.Z *= -RESTITUTION;
-            }
-
-            // Wall Bounces (Simplified: just clamp for now, or ignore)
-            // Ideally we'd raycast or check bounds, but let's stick to gravity/floor first.
-
-            // Convert to screen
-            FVector predictedScreenPos = Drawing::CalculateScreenCoordinate(simLoc, localPlayerController);
-            path.points.push_back(predictedScreenPos);
-
-            // Goal detection
-            // Goal Y is approx +/- 5120, Width X +/- 900, Height Z < 650
-            if (abs(simLoc.Y) > 5120.0f && abs(simLoc.X) < 900.0f && simLoc.Z < 650.0f) {
-                path.willScore = true;
-            }
-        }
-        
-        tempBallPaths.push_back(path);
-    }
-
-    // UPDATE SHARED DATA SAFELY
-    {
-        std::lock_guard<std::mutex> lock(renderMutex);
-        cachedBalls = tempBalls;
-        cachedCars = tempCars;
-        ballPaths = tempBallPaths;
-        carBoostData = tempCarBoostData;
-        ballScreenPositions = tempBallScreenPositions;
+        ballScreenPositions.push_back(screenPos);
     }
 }
 
 void ExampleModule::OnRender() {
-    // Watermark "SushiSDK" - Always visible
-    {
-        ImDrawList* drawList = ImGui::GetBackgroundDrawList();
-        const char* text = "SushiSDK";
-        ImVec2 pos(30, 30);
-        ImU32 glowColor = IM_COL32(0, 255, 255, 100); // Cyan glow
-        ImU32 textColor = IM_COL32(255, 255, 255, 255);
-        
-        // Glow/Outline effect
-        for (int x = -1; x <= 1; x++) {
-            for (int y = -1; y <= 1; y++) {
-                if (x == 0 && y == 0) continue;
-                drawList->AddText(ImGui::GetFont(), 24.0f, ImVec2(pos.x + x, pos.y + y), glowColor, text);
-            }
-        }
-        drawList->AddText(ImGui::GetFont(), 24.0f, pos, textColor, text);
-    }
-
     if (!IsInGame) {
         return;
     }
 
     ImDrawList* drawList = ImGui::GetBackgroundDrawList();
 
-    // Local copy for rendering to avoid long locks or race conditions
-    std::vector<BallPath> localBallPaths;
-    std::vector<CarBoostData> localCarBoostData;
-    std::vector<FVector> localBallScreenPositions;
-    {
-        std::lock_guard<std::mutex> lock(renderMutex);
-        localBallPaths = ballPaths;
-        localCarBoostData = carBoostData;
-        localBallScreenPositions = ballScreenPositions;
-    }
+    // Draw Boost Circles
+    for (const CarBoostData& data : carBoostData) {
+        if (data.screenPosition.Z == 0) {
+            float boostPercentage = data.boostAmount / 100.0f;
+            if (boostPercentage < 0.0f) boostPercentage = 0.0f;
+            if (boostPercentage > 1.0f) boostPercentage = 1.0f;
 
-    // Draw Prediction Lines
-    for (const BallPath& path : localBallPaths) {
-        ImU32 color = path.willScore ? IM_COL32(255, 0, 0, 255) : IM_COL32(255, 255, 0, 255);
-        
-        if (path.points.size() < 2) continue;
+            ImVec2 center(data.screenPosition.X, data.screenPosition.Y);
+            float radius = 25.0f; 
 
-        for (size_t i = 0; i < path.points.size() - 1; i++) {
-            FVector p1 = path.points[i];
-            FVector p2 = path.points[i+1];
+            drawList->AddCircleFilled(center, radius, IM_COL32(50, 50, 50, 180));
 
-            // Valid check (Z==0 means on screen for our function)
-            if (p1.Z == 0.0f && p2.Z == 0.0f) {
-                 if (std::isfinite(p1.X) && std::isfinite(p1.Y) && std::isfinite(p2.X) && std::isfinite(p2.Y)) {
-                     drawList->AddLine(ImVec2(p1.X, p1.Y), ImVec2(p2.X, p2.Y), color, 3.0f);
-                 }
+            if (boostPercentage > 0.0f) {
+                float startAngle = -IM_PI * 0.5f;
+                float endAngle = startAngle + (2.0f * IM_PI * boostPercentage);
+
+                ImU32 boostColor;
+                if (boostPercentage < 0.33f) {
+                    boostColor = IM_COL32(255, 80, 80, 220);
+                }
+                else if (boostPercentage < 0.66f) {
+                    boostColor = IM_COL32(255, 200, 0, 220);
+                }
+                else {
+                    boostColor = IM_COL32(80, 255, 80, 220);
+                }
+
+                drawList->PathClear();
+                drawList->PathLineTo(center);
+
+                const int numSegments = 32;
+                for (int i = 0; i <= numSegments; i++) {
+                    float angle = startAngle + (endAngle - startAngle) * ((float)i / numSegments);
+                    float x = center.x + cosf(angle) * radius;
+                    float y = center.y + sinf(angle) * radius;
+                    drawList->PathLineTo(ImVec2(x, y));
+                }
+
+                drawList->PathLineTo(center);
+                drawList->PathFillConvex(boostColor);
             }
+
+            drawList->AddCircle(center, radius, IM_COL32(255, 255, 255, 150), 32, 2.0f);
+
+            std::string boostText = std::to_string((int)data.boostAmount);
+            ImVec2 textSize = ImGui::CalcTextSize(boostText.c_str());
+            ImVec2 textPos(center.x - textSize.x * 0.5f, center.y - textSize.y * 0.5f);
+            drawList->AddText(textPos, IM_COL32(255, 255, 255, 255), boostText.c_str());
         }
     }
 
-    /* Boost Render Disabled
-    // ...
-    */
-
     // ball circles
-    for (const FVector& screenPos : localBallScreenPositions) {
+    for (const FVector& screenPos : ballScreenPositions) {
         if (screenPos.Z == 0) {
             drawList->AddCircleFilled(ImVec2(screenPos.X, screenPos.Y), 8.f, IM_COL32(0, 255, 0, 255));
         }
