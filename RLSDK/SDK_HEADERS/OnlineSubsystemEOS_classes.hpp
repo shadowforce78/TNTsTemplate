@@ -10,7 +10,11 @@
 #############################################################################################
 */
 #pragma once
+#include "Core_classes.hpp"
+#include "OnlineSubsystemEOS_structs.hpp"
 #include "../GameDefines.hpp"
+#include "Core_structs.hpp"
+#include "Engine_classes.hpp"
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -1026,6 +1030,8 @@ public:
 	bool SetAudioOutputDevice(float OutputVolume, class FString& EpicAccountId, class FString& DeviceID);
 	bool SetAudioInputDevice(float InputVolume, class FString& EpicAccountId, class FString& DeviceID);
 	void SetLocalPlayerRegisteredStatus(bool bRegister, class FString& PlatformId);
+	void OnQueryOutputDevicesFinished();
+	void OnQueryInputDevicesFinished();
 	void CacheOutputAudioDevices();
 	void CacheInputAudioDevices();
 	void Init();

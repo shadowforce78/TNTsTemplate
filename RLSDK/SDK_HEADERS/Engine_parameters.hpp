@@ -11,6 +11,9 @@
 */
 #pragma once
 #include "../GameDefines.hpp"
+#include "Core_structs.hpp"
+#include "Core_classes.hpp"
+#include "Engine_classes.hpp"
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -3444,6 +3447,13 @@ struct UEngine_execIsEditor_Params
 struct UEngine_execUseSecurePackets_Params
 {
 	uint32_t                                           ReturnValue : 1;                                  		// 0x0000 (0x0004) [0x0000000000000580] [0x00000001] (CPF_Parm | CPF_OutParm | CPF_ReturnParm)
+};
+
+// Function Engine.GameEngine.EventTravelMapNotFound
+// [0x00120001] 
+struct UGameEngine_execEventTravelMapNotFound_Params
+{
+	class FString                                      MapName;                                          		// 0x0000 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
 // Function Engine.GameEngine.HasSecondaryScreenActive
@@ -9785,23 +9795,6 @@ struct APlayerController_eventNotifyDirectorControl_Params
 {
 	uint32_t                                           bNowControlling : 1;                              		// 0x0000 (0x0004) [0x0000000000000080] [0x00000001] (CPF_Parm)
 	class USeqAct_Interp*                              CurrentMatinee;                                   		// 0x0008 (0x0008) [0x0000000000000080] (CPF_Parm)    
-};
-
-// Function Engine.PlayerController.ServerUnmutePlayer
-// [0x002208C2] 
-struct APlayerController_eventServerUnmutePlayer_Params
-{
-	struct FUniqueNetId                                PlayerNetId;                                      		// 0x0000 (0x0048) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-	// class APlayerController*                           Other;                                            		// 0x0048 (0x0008) [0x0000000000000000]               
-	// int32_t                                            RemoveIndex;                                      		// 0x0050 (0x0004) [0x0000000000000000]               
-};
-
-// Function Engine.PlayerController.ServerMutePlayer
-// [0x002208C2] 
-struct APlayerController_eventServerMutePlayer_Params
-{
-	struct FUniqueNetId                                PlayerNetId;                                      		// 0x0000 (0x0048) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
-	// class APlayerController*                           Other;                                            		// 0x0048 (0x0008) [0x0000000000000000]               
 };
 
 // Function Engine.PlayerController.GameplayUnmutePlayer
@@ -37118,10 +37111,11 @@ struct UOnlineSystemInterface_execAddUserOrphanedDelegate_Params
 };
 
 // Function Engine.OnlineSystemInterface.OnUserOrphaned
-// [0x00120000] 
+// [0x00124000] 
 struct UOnlineSystemInterface_execOnUserOrphaned_Params
 {
 	uint8_t                                            ControllerId;                                     		// 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
+	uint32_t                                           bOrphanedByControllerDisconnection : 1;           		// 0x0004 (0x0004) [0x0000000000000090] [0x00000001] (CPF_OptionalParm | CPF_Parm)
 };
 
 // Function Engine.OnlineSystemInterface.ClearControllerChangeDelegate

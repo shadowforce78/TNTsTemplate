@@ -11,6 +11,9 @@
 */
 #pragma once
 #include "../GameDefines.hpp"
+#include "Core_structs.hpp"
+#include "Core_classes.hpp"
+#include "Engine_classes.hpp"
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -4176,6 +4179,18 @@ struct UOnlineVoiceInterfaceEOS_execSetLocalPlayerRegisteredStatus_Params
 {
 	class FString                                      PlatformId;                                       		// 0x0000 (0x0010) [0x0000000000400182] (CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink)
 	uint32_t                                           bRegister : 1;                                    		// 0x0010 (0x0004) [0x0000000000000082] [0x00000001] (CPF_Const | CPF_Parm)
+};
+
+// Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.OnQueryOutputDevicesFinished
+// [0x00040401] 
+struct UOnlineVoiceInterfaceEOS_execOnQueryOutputDevicesFinished_Params
+{
+};
+
+// Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.OnQueryInputDevicesFinished
+// [0x00040401] 
+struct UOnlineVoiceInterfaceEOS_execOnQueryInputDevicesFinished_Params
+{
 };
 
 // Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.CacheOutputAudioDevices

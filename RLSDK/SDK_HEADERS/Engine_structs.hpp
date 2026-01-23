@@ -1,4 +1,3 @@
-
 /*
 #############################################################################################
 # RocketLeague (6.9.6.9) SDK
@@ -11,8 +10,8 @@
 #############################################################################################
 */
 #pragma once
-#include "Core_structs.hpp"
 #include "../GameDefines.hpp"
+#include "Core_structs.hpp"
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -4359,12 +4358,7 @@ struct FColumnMetaData
 	class FString                                      ColumnName;                                    // 0x0018 (0x0010) [0x0000000000408002] (CPF_Const | CPF_Localized | CPF_NeedCtorLink)
 };
 
-// ScriptStruct Engine.ORS.TimerOptions
-// 0x0004
-struct FTimerOptions
-{
-	uint32_t                                           bLooping : 1;                                  // 0x0000 (0x0004) [0x0000000000000000] [0x00000001] 
-};
+// FTimerOptions moved to Core_structs.hpp
 
 // ScriptStruct Engine.ParticleEmitter.ParticleBurst
 // 0x000C

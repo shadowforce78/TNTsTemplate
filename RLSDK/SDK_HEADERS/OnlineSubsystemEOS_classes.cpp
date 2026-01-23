@@ -11,6 +11,8 @@
 */
 #include "../SdkHeaders.hpp"
 #include "../GameDefines.hpp"
+#include "Core_classes.hpp"
+#include "Engine_classes.hpp"
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -12452,6 +12454,48 @@ void UOnlineVoiceInterfaceEOS::SetLocalPlayerRegisteredStatus(bool bRegister, cl
 	uFnSetLocalPlayerRegisteredStatus->FunctionFlags |= 0x400;
 
 	memcpy_s(&PlatformId, sizeof(PlatformId), &SetLocalPlayerRegisteredStatus_Params.PlatformId, sizeof(SetLocalPlayerRegisteredStatus_Params.PlatformId));
+};
+
+// Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.OnQueryOutputDevicesFinished
+// [0x00040401] (FUNC_Final | FUNC_Native | FUNC_Private | FUNC_AllFlags)
+// Parameter Info:
+
+void UOnlineVoiceInterfaceEOS::OnQueryOutputDevicesFinished()
+{
+	static UFunction* uFnOnQueryOutputDevicesFinished = nullptr;
+
+	if (!uFnOnQueryOutputDevicesFinished)
+	{
+		uFnOnQueryOutputDevicesFinished = UFunction::FindFunction("Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.OnQueryOutputDevicesFinished");
+	}
+
+	UOnlineVoiceInterfaceEOS_execOnQueryOutputDevicesFinished_Params OnQueryOutputDevicesFinished_Params;
+	memset(&OnQueryOutputDevicesFinished_Params, 0, sizeof(OnQueryOutputDevicesFinished_Params));
+
+	uFnOnQueryOutputDevicesFinished->FunctionFlags &= ~0x400;
+	this->ProcessEvent(uFnOnQueryOutputDevicesFinished, &OnQueryOutputDevicesFinished_Params, nullptr);
+	uFnOnQueryOutputDevicesFinished->FunctionFlags |= 0x400;
+};
+
+// Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.OnQueryInputDevicesFinished
+// [0x00040401] (FUNC_Final | FUNC_Native | FUNC_Private | FUNC_AllFlags)
+// Parameter Info:
+
+void UOnlineVoiceInterfaceEOS::OnQueryInputDevicesFinished()
+{
+	static UFunction* uFnOnQueryInputDevicesFinished = nullptr;
+
+	if (!uFnOnQueryInputDevicesFinished)
+	{
+		uFnOnQueryInputDevicesFinished = UFunction::FindFunction("Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.OnQueryInputDevicesFinished");
+	}
+
+	UOnlineVoiceInterfaceEOS_execOnQueryInputDevicesFinished_Params OnQueryInputDevicesFinished_Params;
+	memset(&OnQueryInputDevicesFinished_Params, 0, sizeof(OnQueryInputDevicesFinished_Params));
+
+	uFnOnQueryInputDevicesFinished->FunctionFlags &= ~0x400;
+	this->ProcessEvent(uFnOnQueryInputDevicesFinished, &OnQueryInputDevicesFinished_Params, nullptr);
+	uFnOnQueryInputDevicesFinished->FunctionFlags |= 0x400;
 };
 
 // Function OnlineSubsystemEOS.OnlineVoiceInterfaceEOS.CacheOutputAudioDevices

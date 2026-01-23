@@ -680,6 +680,13 @@ struct FRotatorRadians
 	float                                              Roll;                                          // 0x0008 (0x0004) [0x0000000000000001] (CPF_Edit)    
 };
 
+// ScriptStruct Engine.ORS.TimerOptions
+// 0x0004
+struct FTimerOptions
+{
+	uint32_t                                           bLooping : 1;                                  // 0x0000 (0x0004) [0x0000000000000000] [0x00000001] 
+};
+
 // ScriptStruct Core.Default__ScriptStruct
 // 0x0000
 struct FDefault__ScriptStruct

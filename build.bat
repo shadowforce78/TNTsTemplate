@@ -1,0 +1,1 @@
+msbuild tntsTemplate.sln /p:Configuration=Release

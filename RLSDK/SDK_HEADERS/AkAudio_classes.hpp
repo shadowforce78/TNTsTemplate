@@ -9,9 +9,12 @@
 # Links: www.github.com/CodeRedModding/CodeRed-Generator, discord.gg/astQyRWYcs
 #############################################################################################
 */
-
-#include "../GameDefines.hpp"
 #pragma once
+#include "Core_classes.hpp"
+#include "AkAudio_structs.hpp"
+#include "../GameDefines.hpp"
+#include "Core_structs.hpp"
+#include "Engine_classes.hpp"
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
