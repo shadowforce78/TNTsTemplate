@@ -1,6 +1,6 @@
 /*
 #############################################################################################
-# RocketLeague (6.9.6.9) SDK
+# RocketLeague (2.1) SDK
 # Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: OnlineSubsystemEOS_classes.cpp
@@ -741,32 +741,14 @@ void UOnlineSubsystemEOS::OpenStoreForItemsAsync(uint8_t LocalUserNum, TArray<cl
 	this->ProcessEvent(uFnOpenStoreForItemsAsync, &OpenStoreForItemsAsync_Params, nullptr);
 };
 
-// Function OnlineSubsystemEOS.OnlineSubsystemEOS.OnStorePurchaseCompleteDelegate
-// [0x00120001] (FUNC_Final | FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
-// Parameter Info:
-
-void UOnlineSubsystemEOS::OnStorePurchaseCompleteDelegate()
-{
-	static UFunction* uFnOnStorePurchaseCompleteDelegate = nullptr;
-
-	if (!uFnOnStorePurchaseCompleteDelegate)
-	{
-		uFnOnStorePurchaseCompleteDelegate = UFunction::FindFunction("Function OnlineSubsystemEOS.OnlineSubsystemEOS.OnStorePurchaseCompleteDelegate");
-	}
-
-	UOnlineSubsystemEOS_execOnStorePurchaseCompleteDelegate_Params OnStorePurchaseCompleteDelegate_Params;
-	memset(&OnStorePurchaseCompleteDelegate_Params, 0, sizeof(OnStorePurchaseCompleteDelegate_Params));
-
-	this->ProcessEvent(uFnOnStorePurchaseCompleteDelegate, &OnStorePurchaseCompleteDelegate_Params, nullptr);
-};
-
 // Function OnlineSubsystemEOS.OnlineSubsystemEOS.OpenStoreForItems
 // [0x00020401] (FUNC_Final | FUNC_Native | FUNC_Public | FUNC_AllFlags)
 // Parameter Info:
 // uint8_t                        LocalUserNum                   (CPF_Parm)
 // TArray<class FString>          Targets                        (CPF_Parm | CPF_NeedCtorLink)
+// struct FScriptDelegate         OnStorePurchaseCompleteDelegate (CPF_Parm | CPF_NeedCtorLink)
 
-void UOnlineSubsystemEOS::OpenStoreForItems(uint8_t LocalUserNum, TArray<class FString> Targets)
+void UOnlineSubsystemEOS::OpenStoreForItems(uint8_t LocalUserNum, TArray<class FString> Targets, struct FScriptDelegate OnStorePurchaseCompleteDelegate)
 {
 	static UFunction* uFnOpenStoreForItems = nullptr;
 
@@ -779,6 +761,7 @@ void UOnlineSubsystemEOS::OpenStoreForItems(uint8_t LocalUserNum, TArray<class F
 	memset(&OpenStoreForItems_Params, 0, sizeof(OpenStoreForItems_Params));
 	memcpy_s(&OpenStoreForItems_Params.LocalUserNum, sizeof(OpenStoreForItems_Params.LocalUserNum), &LocalUserNum, sizeof(LocalUserNum));
 	memcpy_s(&OpenStoreForItems_Params.Targets, sizeof(OpenStoreForItems_Params.Targets), &Targets, sizeof(Targets));
+	memcpy_s(&OpenStoreForItems_Params.OnStorePurchaseCompleteDelegate, sizeof(OpenStoreForItems_Params.OnStorePurchaseCompleteDelegate), &OnStorePurchaseCompleteDelegate, sizeof(OnStorePurchaseCompleteDelegate));
 
 	uFnOpenStoreForItems->FunctionFlags &= ~0x400;
 	this->ProcessEvent(uFnOpenStoreForItems, &OpenStoreForItems_Params, nullptr);
@@ -806,6 +789,25 @@ void UOnlineSubsystemEOS::OpenStoreForDLC(uint8_t LocalUserNum, struct FName DLC
 	memcpy_s(&OpenStoreForDLC_Params.DLC, sizeof(OpenStoreForDLC_Params.DLC), &DLC, sizeof(DLC));
 
 	this->ProcessEvent(uFnOpenStoreForDLC, &OpenStoreForDLC_Params, nullptr);
+};
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.OnStorePurchaseCompleteDelegate
+// [0x00120001] (FUNC_Final | FUNC_Public | FUNC_Delegate | FUNC_AllFlags)
+// Parameter Info:
+
+void UOnlineSubsystemEOS::OnStorePurchaseCompleteDelegate()
+{
+	static UFunction* uFnOnStorePurchaseCompleteDelegate = nullptr;
+
+	if (!uFnOnStorePurchaseCompleteDelegate)
+	{
+		uFnOnStorePurchaseCompleteDelegate = UFunction::FindFunction("Function OnlineSubsystemEOS.OnlineSubsystemEOS.OnStorePurchaseCompleteDelegate");
+	}
+
+	UOnlineSubsystemEOS_execOnStorePurchaseCompleteDelegate_Params OnStorePurchaseCompleteDelegate_Params;
+	memset(&OnStorePurchaseCompleteDelegate_Params, 0, sizeof(OnStorePurchaseCompleteDelegate_Params));
+
+	this->ProcessEvent(uFnOnStorePurchaseCompleteDelegate, &OnStorePurchaseCompleteDelegate_Params, nullptr);
 };
 
 // Function OnlineSubsystemEOS.OnlineSubsystemEOS.OpenErrorDialog

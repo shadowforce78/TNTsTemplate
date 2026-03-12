@@ -1,6 +1,6 @@
 /*
 #############################################################################################
-# RocketLeague (6.9.6.9) SDK
+# RocketLeague (2.1) SDK
 # Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: WinDrv_parameters.hpp
@@ -11,9 +11,6 @@
 */
 #pragma once
 #include "../GameDefines.hpp"
-#include "Core_structs.hpp"
-#include "Core_classes.hpp"
-#include "Engine_classes.hpp"
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)

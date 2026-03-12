@@ -1,6 +1,6 @@
 /*
 #############################################################################################
-# RocketLeague (6.9.6.9) SDK
+# RocketLeague (2.1) SDK
 # Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: OnlineSubsystemEOS_parameters.hpp
@@ -11,9 +11,6 @@
 */
 #pragma once
 #include "../GameDefines.hpp"
-#include "Core_structs.hpp"
-#include "Core_classes.hpp"
-#include "Engine_classes.hpp"
 
 #ifdef _MSC_VER
 	#pragma pack(push, 0x8)
@@ -262,18 +259,13 @@ struct UOnlineSubsystemEOS_execOpenStoreForItemsAsync_Params
 	struct FScriptDelegate                             OnStorePurchaseCompleteDelegate;                  		// 0x0018 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
-// Function OnlineSubsystemEOS.OnlineSubsystemEOS.OnStorePurchaseCompleteDelegate
-// [0x00120001] 
-struct UOnlineSubsystemEOS_execOnStorePurchaseCompleteDelegate_Params
-{
-};
-
 // Function OnlineSubsystemEOS.OnlineSubsystemEOS.OpenStoreForItems
 // [0x00020401] 
 struct UOnlineSubsystemEOS_execOpenStoreForItems_Params
 {
 	uint8_t                                            LocalUserNum;                                     		// 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	TArray<class FString>                              Targets;                                          		// 0x0008 (0x0010) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
+	struct FScriptDelegate                             OnStorePurchaseCompleteDelegate;                  		// 0x0018 (0x0018) [0x0000000000400080] (CPF_Parm | CPF_NeedCtorLink)
 };
 
 // Function OnlineSubsystemEOS.OnlineSubsystemEOS.OpenStoreForDLC
@@ -282,6 +274,12 @@ struct UOnlineSubsystemEOS_execOpenStoreForDLC_Params
 {
 	uint8_t                                            LocalUserNum;                                     		// 0x0000 (0x0001) [0x0000000000000080] (CPF_Parm)    
 	struct FName                                       DLC;                                              		// 0x0004 (0x0008) [0x0000000000000080] (CPF_Parm)    
+};
+
+// Function OnlineSubsystemEOS.OnlineSubsystemEOS.OnStorePurchaseCompleteDelegate
+// [0x00120001] 
+struct UOnlineSubsystemEOS_execOnStorePurchaseCompleteDelegate_Params
+{
 };
 
 // Function OnlineSubsystemEOS.OnlineSubsystemEOS.OpenErrorDialog

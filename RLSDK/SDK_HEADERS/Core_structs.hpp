@@ -1,6 +1,6 @@
 /*
 #############################################################################################
-# RocketLeague (6.9.6.9) SDK
+# RocketLeague (2.1) SDK
 # Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: Core_structs.hpp
@@ -678,13 +678,6 @@ struct FRotatorRadians
 	float                                              Pitch;                                         // 0x0000 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              Yaw;                                           // 0x0004 (0x0004) [0x0000000000000001] (CPF_Edit)    
 	float                                              Roll;                                          // 0x0008 (0x0004) [0x0000000000000001] (CPF_Edit)    
-};
-
-// ScriptStruct Engine.ORS.TimerOptions
-// 0x0004
-struct FTimerOptions
-{
-	uint32_t                                           bLooping : 1;                                  // 0x0000 (0x0004) [0x0000000000000000] [0x00000001] 
 };
 
 // ScriptStruct Core.Default__ScriptStruct

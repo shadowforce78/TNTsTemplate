@@ -1,6 +1,6 @@
 /*
 #############################################################################################
-# RocketLeague (6.9.6.9) SDK
+# RocketLeague (2.1) SDK
 # Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: IpDrv_classes.hpp
@@ -10,10 +10,9 @@
 #############################################################################################
 */
 #pragma once
-#include "Core_classes.hpp"
-#include "IpDrv_structs.hpp"
 #include "../GameDefines.hpp"
-#include "Core_structs.hpp"
+#include "IpDrv_structs.hpp"
+#include "Core_classes.hpp"
 #include "Engine_classes.hpp"
 
 #ifdef _MSC_VER

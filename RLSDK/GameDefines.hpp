@@ -1,6 +1,6 @@
 /*
 #############################################################################################
-# RocketLeague (6.9.6.9) SDK
+# RocketLeague (2.1) SDK
 # Generated with the RocketLeagueGenerator v1.0.3
 # ========================================================================================= #
 # File: GameDefines.hpp
@@ -168,9 +168,9 @@ enum EObjectFlags
 */
 
 // GObjects
-#define GObjects_Offset		(uintptr_t)0x023F0898
+#define GObjects_Offset		(uintptr_t)0x02401690
 // GNames
-#define GNames_Offset		(uintptr_t)0x023F0850
+#define GNames_Offset		(uintptr_t)0x02401648
 
 /*
 # ========================================================================================= #
